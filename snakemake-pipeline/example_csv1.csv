@@ -1,0 +1,3 @@
+"name","raw_data_path","pub_sample_size","effect_is_or","snp","A1","A2","beta_hat","se","pos","p_value","sample_size","chrom","af"
+"ukb-b-1668","/net/snowwhite/home/lijack/6_10_2024_MR_survey/gwas_summary_data/outcomes/CHD/ukb-b-1668.vcf.gz",463010,FALSE,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"ieu-b-110","/net/snowwhite/home/lijack/6_10_2024_MR_survey/gwas_summary_data/exposures/LDLC/ieu-b-110.vcf.gz",440546,FALSE,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
