@@ -1,0 +1,144 @@
+
+# Provide one entry in input for each desired analysis.
+# The value on the left of the colon gives the label used for the analysis.
+# The value on the right gives the study description file.
+
+#   The MVMR pipeline will run MVMR treating the first trait in the study description file
+#   as the outcome and the other traits as exposures.
+#   You can choose from four MVMR methods in the analysis section.
+input:
+        GCST90278646_GCST90018576: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90018576.csv'
+        GCST90278646_ebi-a-GCST006414: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST006414.csv'
+        GCST90278646_finngen_R10_I9_AF: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_I9_AF.csv'
+        GCST90278646_ukb-b-6217: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-6217.csv'
+        GCST90278646_ukb-e-I48_CSA: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-e-I48_CSA.csv'
+        GCST90278646_ebi-a-GCST90027158: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90027158.csv'
+        GCST90278646_finngen_R10_G6_ALZHEIMER: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_G6_ALZHEIMER.csv'
+        GCST90278646_ebi-a-GCST90038678: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90038678.csv'
+        GCST90278646_ebi-a-GCST90018652: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90018652.csv'
+        GCST90278646_ebi-a-GCST90018872: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90018872.csv'
+        GCST90278646_finngen_R10_D3_ANAEMIA_IRONDEF: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_D3_ANAEMIA_IRONDEF.csv'
+        GCST90278646_ebi-a-GCST90014325: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90014325.csv'
+        GCST90278646_ebi-a-GCST90018575: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90018575.csv'
+        GCST90278646_finngen_R10_J10_ASTHMA_EXMORE: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_J10_ASTHMA_EXMORE.csv'
+        GCST90278646_ukb-e-495_CSA: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-e-495_CSA.csv'
+        GCST90278646_ebi-a-GCST90027161: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90027161.csv'
+        GCST90278646_ebi-a-GCST90018784: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90018784.csv'
+        GCST90278646_GCST90018564: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90018564.csv'
+        GCST90278646_finngen_R10_L12_ATOPIC: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_L12_ATOPIC.csv'
+        GCST90278646_bbj-a-53: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_bbj-a-53.csv'
+        GCST90278646_ukb-d-30840_irnt: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-d-30840_irnt.csv'
+        GCST90278646_ukb-e-30840_AFR: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-e-30840_AFR.csv'
+        GCST90278646_ukb-e-30840_CSA: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-e-30840_CSA.csv'
+        GCST90278646_bbj-a-160: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_bbj-a-160.csv'
+        GCST90278646_ebi-a-GCST004988: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST004988.csv'
+        GCST90278646_finngen_R10_C3_BREAST_EXALLC: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_C3_BREAST_EXALLC.csv'
+        GCST90278646_ukb-b-16890: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-16890.csv'
+        GCST90278646_bbj-a-159: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_bbj-a-159.csv'
+        GCST90278646_ebi-a-GCST005194: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST005194.csv'
+        GCST90278646_finngen_R10_I9_CHD: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_I9_CHD.csv'
+        GCST90278646_ieu-a-7: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ieu-a-7.csv'
+        GCST90278646_ukb-b-1668: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-1668.csv'
+        GCST90278646_ebi-a-GCST90018587: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90018587.csv'
+        GCST90278646_ebi-a-GCST90018807: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90018807.csv'
+        GCST90278646_finngen_R10_J10_COPD: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_J10_COPD.csv'
+        GCST90278646_GCST90399691: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90399691.csv'
+        GCST90278646_GCST90399692: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90399692.csv'
+        GCST90278646_ukb-b-16751: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-16751.csv'
+        GCST90278646_ebi-a-GCST004132: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST004132.csv'
+        GCST90278646_finngen_R10_CHRONNAS: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_CHRONNAS.csv'
+        GCST90278646_ieu-a-12: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ieu-a-12.csv'
+        GCST90278646_finngen_R10_M13_GOUT: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_M13_GOUT.csv'
+        GCST90278646_GCST90399698: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90399698.csv'
+        GCST90278646_GCST90399699: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90399699.csv'
+        GCST90278646_GCST90399700: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90399700.csv'
+        GCST90278646_GCST90399701: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90399701.csv'
+        GCST90278646_ukb-b-13251: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-13251.csv'
+        GCST90278646_ebi-a-GCST90104005: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90104005.csv'
+        GCST90278646_ebi-a-GCST90090994: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90090994.csv'
+        GCST90278646_finngen_R10_E4_HYPERLIPNAS: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_E4_HYPERLIPNAS.csv'
+        GCST90278646_ebi-a-GCST008036: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST008036.csv'
+        GCST90278646_finngen_R10_I9_HYPTENS: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_I9_HYPTENS.csv'
+        GCST90278646_GCST90301363: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90301363.csv'
+        GCST90278646_ukb-b-14057: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-14057.csv'
+        GCST90278646_ukb-e-401_CSA: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-e-401_CSA.csv'
+        GCST90278646_ebi-a-GCST90018657: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90018657.csv'
+        GCST90278646_ebi-a-GCST90018877: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90018877.csv'
+        GCST90278646_finngen_R10_I9_MI_STRICT: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_I9_MI_STRICT.csv'
+        GCST90278646_ieu-a-798: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ieu-a-798.csv'
+        GCST90278646_ukb-b-15829: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-15829.csv'
+        GCST90278646_finngen_R10_G6_MS: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_G6_MS.csv'
+        GCST90278646_ieu-b-18: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ieu-b-18.csv'
+        GCST90278646_ukb-b-17670: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-17670.csv'
+        GCST90278646_ebi-a-GCST90091033: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST90091033.csv'
+        GCST90278646_finngen_R10_NAFLD: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_NAFLD.csv'
+        GCST90278646_GCST90271622: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90271622.csv'
+        GCST90278646_bbj-a-137: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_bbj-a-137.csv'
+        GCST90278646_finngen_R10_M13_OSTEOPOROSIS: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_M13_OSTEOPOROSIS.csv'
+        GCST90278646_ukb-b-12141: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-12141.csv'
+        GCST90278646_GCST90018690: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90018690.csv'
+        GCST90278646_finngen_R10_M13_RHEUMA: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_M13_RHEUMA.csv'
+        GCST90278646_ieu-a-832: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ieu-a-832.csv'
+        GCST90278646_ieu-a-833: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ieu-a-833.csv'
+        GCST90278646_ukb-b-9125: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-9125.csv'
+        GCST90278646_finngen_R10_F5_SCHZPHR: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_F5_SCHZPHR.csv'
+        GCST90278646_ieu-b-42: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ieu-b-42.csv'
+        GCST90278646_ieu-b-5070: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ieu-b-5070.csv'
+        GCST90278646_ieu-b-5102: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ieu-b-5102.csv'
+        GCST90278646_ebi-a-GCST006906: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST006906.csv'
+        GCST90278646_GCST90018644: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90018644.csv'
+        GCST90278646_finngen_R10_C_STROKE: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_C_STROKE.csv'
+        GCST90278646_GCST90399729: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90399729.csv'
+        GCST90278646_ukb-b-6358: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-6358.csv'
+        GCST90278646_ukb-b-13806: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ukb-b-13806.csv'
+        GCST90278646_GCST90018706: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90018706.csv'
+        GCST90278646_GCST90093109: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_GCST90093109.csv'
+        GCST90278646_ebi-a-GCST006867: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST006867.csv'
+        GCST90278646_finngen_R10_T2D: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_finngen_R10_T2D.csv'
+        GCST90278646_ebi-a-GCST008048: '/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_csv_files/trait_pair_csvs/EAS/GCST90278646_ebi-a-GCST008048.csv'
+
+analysis:
+    # LD pruning options:
+    # r2_thresh: threshold for pairwise r^2 between variants
+    # clump_kb: Maximum distance for pruning.
+    # ref_path: Path to plink format reference data (.bim .bed .fam)
+    # ld_prioritization: either pvalue or rank, maybe eventually sd
+    ldprune:
+        r2_thresh: 0.01 # list ok
+        clump_kb: 1000 # list ok
+        ld_prioritization: ["pvalue"] # list ok,  "pvalue" or "rank"
+        ref_path: "/net/snowwhite/home/lijack/Qlocus_LD_04_09_2023/ld_reference/EAS"
+    R:
+      type: "pt" # options are "pt", "ldsc", "none"
+      pthresh: [0.05]
+      l2_dir: "eur_w_ld_chr/" # not a list
+      cond_num: 1e3
+   # MVMR options.
+   # Set run to True for the methods you want to run and False for the methods you don't want to run.
+   # Sub-sections provide options for each method, mostly self-explanatory.
+   # af_thresh: Allele frequency threshold
+    mvmr:
+      af_thresh: 0
+      esmr:
+        run: False
+        p_thresh: [5e-08]
+        max_iter: 100
+      grapple:
+        run: True
+        p_thresh: [1e-5]
+        max_iter: 1e6
+      bee:
+        run: False
+        p_thresh: [5e-8]
+        pleio_pt: [0, 0.05]
+        max_iter: 100
+      ivw:
+        run: False
+        p_thresh: [5e-8]
+
+out:
+    # Output data options: Remember to leave a slash at the end!
+    # data_dir: Directory to store reformatted data
+    # output_dir: Where to store results
+    data_dir: "/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_outputs/reformatted_data/GCST90278646/"
+    output_dir: "/net/snowwhite/home/lijack/6_10_2024_MR_survey/snakemake_outputs/twosamplemr_results/GCST90278646/"
