@@ -14,7 +14,6 @@ snakemake \
               --error={cluster.log}_%j.err \
               --job-name={cluster.name} \
               --time={cluster.time}  \
-              --exclude=r6407,r6406  \
               --cpus-per-task={cluster.cpus}  \
               --mem={cluster.mem}"
 

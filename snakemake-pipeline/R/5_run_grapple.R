@@ -64,9 +64,9 @@ if (length(ix) > 0) { #UPDATE: 7/7/2024: this section is only run if ANY strong-
   }else{
      grapple_dat <- grapple_dat[ix,]
   }
-  
+
   #UPDATE, 6/30/2024: if grapple_dat is 7 SNPs or fewer, we can't run residual diagnostics; so I've created an if/else statement for that instead.
-  
+
   if (dim(grapple_dat)[1] > 7) {
     t <- system.time(
     res <- grappleRobustEst(data = grapple_dat,
@@ -74,7 +74,7 @@ if (length(ix) > 0) { #UPDATE: 7/7/2024: this section is only run if ANY strong-
                             p.thres = pt,
                             cor.mat = Rcor,
                             loss.function = "tukey",
-                            niter = 20)) #UPDATE: 7/4/2024 - 1 million max iterations? Really?
+                            niter = 20)) #UPDATE: 7/4/2024 - reduced 1 million maximum iterations to 20
   } else {
     t <- system.time(
     res <- grappleRobustEst(data = grapple_dat,
@@ -85,9 +85,9 @@ if (length(ix) > 0) { #UPDATE: 7/7/2024: this section is only run if ANY strong-
                             loss.function = "tukey",
                             diagnosis = FALSE)) #no residual diagnostics.
   }
-  
+
   res$time <- t
   res$names <- nms
-  
+
   saveRDS(list(grapple_data = grapple_dat, result = res), file=out)
 }
