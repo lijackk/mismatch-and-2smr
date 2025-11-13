@@ -406,47 +406,61 @@ summary statistics for ease of use, located <a href="https://zenodo.org/uploads/
 <code>exposure_sumstats.tar.gz</code> (~80GB) consisting of summary
 statistics from 128 GWAS studies across 26 exposure traits, and
 <code>outcome_sumstats.tar.gz</code> (~50GB) consisting of summary
-statistics from 88 GWAS studies across 21 outcome traits. Unzipping
-these .tar.gz files will yield an “~/exposures/” and “~/outcomes/”
-directory, respectively, with summary statistics divided by traits for
-each.</p>
+statistics from 88 GWAS studies across 21 outcome traits. Once these
+files are downloaded and placed into your working directory, unzipping
+these .tar.gz files using the commands
+<code>tar -xvzf exposure_sumstats.tar.gz</code> and
+<code>tar -xvzf outcome_sumstats.tar.gz</code> will yield an
+“exposures/” and “outcomes/” directory, respectively, with
+subdirectories containing GWAS summary statistics for studies of
+specific traits.</p>
 </div>
 <div id="step-1b-downloading-ld-reference-panels" class="section level2">
 <h2>Step 1b) Downloading LD reference panels</h2>
-<p>We used reference panels from 1000 Genomes from one of the five
-superpopulations available (AFR, AMR, EAS, EUR, SAS). These reference
+<p>We used reference panels from 1000 Genomes, divided into five
+continental superpopulations (AFR, AMR, EAS, EUR, SAS). These reference
 panels are available for FTP download. To obtain these summary
-statistics, create a folder named “ld_reference” in your working
-directory, and in the directory enter the command
-<code>wget http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz</code>. Unpack
-the resulting <code>.tgz</code> file.</p>
+statistics, enter the command
+<code>wget http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz</code>. Then,
+create a folder named “ld_reference” in your working directory, and in
+the directory, unpack the resulting <code>.tgz</code> file using the
+command <code>tar -xvzf 1kg.v3.tgz -C ld_reference/</code>.</p>
 </div>
 <div id="step-1c-running-grapple-at-1e-5-with-snakemake" class="section level2">
 <h2>Step 1c) Running GRAPPLE at 1e-5 with Snakemake</h2>
 <p>We use a slightly modified version of Dr. Jean Morrison’s Snakemake
 pipeline for GFA/MVMR/NESMR located <a href="https://github.com/jean997/gfa_pipeline">in this repository</a>,
-with a focus on the multivariable MR (MVMR) portion. We first ran only
-GRAPPLE at the lenient instrument selection p-value threshold of 1e-5,
-then used the resulting snakemake object to run the other MR analyses at
-a more stringent instrument selection threshold of 5e-8.</p>
+with a focus on the multivariable MR (MVMR) portion.</p>
 <p>The necessary components for running are provided in the following
 directories:</p>
 <ol style="list-style-type: decimal">
-<li>CSV files for each pair of exposure and outcome studies, located in
-the <code>snakemake_csv_files/trait_pair_csvs/</code> directory.</li>
-<li>The LD reference panels downloaded and unpacked from Step 1b)</li>
-<li>YAML files for each of 128 exposures, located in the
-<code>all_trait_yaml/</code> directory. This will run MR using this
-trait</li>
+<li>CSV files for each pair of exposure and outcome GWAS summary
+statistics, located in the
+<code>snakemake_csv_files/trait_pair_csvs/</code> directory.</li>
+<li>The LD reference panels downloaded and unpacked from Step 1b).</li>
+<li>YAML files for each of 128 exposure studies, located in the
+<code>all_trait_yaml/</code> directory. Each of these YAML files
+instructs the snakemake pipeline to compute up to 88 MR estimates, using
+the specified study as an exposure across all outcome studies.</li>
+</ol>
+<p>To run the snakemake pipeline for a specific exposure study:</p>
+<ol style="list-style-type: decimal">
+<li>Navigate to the /<code>snakemake-pipeline/</code> directory.</li>
+<li>Replace the contents of
+<code>snakemake-pipeline/config_mvmr.yaml</code> with the corresponding
+YAML file in <code>all_trait_yaml/</code> (for example:
+<code>snakemake-pipeline/all_trait_yaml/bbj-a-12_mvmr.yaml</code>).</li>
+<li>Run the command <code>./run-snakemake-mvmr.sh</code>.</li>
 </ol>
 <p>The results of this snakemake output are saved into an RDS file into
-a data directory and an output directory. If the snakemake pipeline is
-run successfully, the data directory will contain estimates of residual
-correlations as an RDS file, while the output directory will contain the
-final output of the snakemake pipeline. An sample residual correlation
-estimate file in the data directory is provided in
-example1_Restimate.RDS of the snakemake-pipeline directory, consisting
-of the list showing the 2x2 residual correlation matrix in
+a data directory, <code>snakemake_outputs/mvmr_data/</code> and an
+output directory, <code>snakemake_outputs/mvmr_results</code>. If the
+snakemake pipeline is run successfully, the data directory will contain
+estimates of residual correlations as an RDS file, while the output
+directory will contain the final output of the snakemake pipeline. An
+sample residual correlation estimate file in the data directory is
+provided in example1_Restimate.RDS of the snakemake-pipeline directory,
+consisting of the list showing the 2x2 residual correlation matrix in
 <code>R</code>, and the IDs of the summary statistics used in
 <code>names</code>. A sample final output file in the output directory
 is shown in example1_run.RDS of the snakemake-pipeline directory. This
@@ -455,21 +469,32 @@ object contains both the summary statistics for instruments used in the
 object itself, runtime information, and the IDs of the summary
 statistics used, in <code>result</code>.</p>
 </div>
-<div id="step-1b-running-ivw-and-grapple-at-5e-8" class="section level2">
-<h2>Step 1b) Running IVW and GRAPPLE at 5e-8</h2>
-</div>
 </div>
 <div id="step-2-downstream-processing" class="section level1">
 <h1>Step 2: Downstream Processing</h1>
-<div id="steiger-filtering" class="section level2">
-<h2>Steiger Filtering</h2>
+<p>The estimates derived from the output from step 1 are
+<strong>not</strong> the final estimates we used in the analyses of our
+paper. We need to perform three additional steps: 1) Steiger filtering
+to address possible reverse causation in the variants we selected as
+instruments, 2) performing MR using other methods at different
+instrument selection thresholds using our Steiger-filtered list of SNPs,
+and 3) rescaling the estimates to a standardized scale to facilitate
+comparison.</p>
+<div id="step-2a-steiger-filtering" class="section level2">
+<h2>Step 2a) Steiger Filtering</h2>
 </div>
-<div id="estimate-rescaling" class="section level2">
-<h2>Estimate Rescaling</h2>
+<div id="step-2b-additional-mr-analyses" class="section level2">
+<h2>Step 2b) Additional MR analyses</h2>
+</div>
+<div id="step-2c-estimate-rescaling" class="section level2">
+<h2>Step 2c) Estimate Rescaling</h2>
+<p>After Steiger-filtering, the estimates must be rescaled.</p>
 </div>
 </div>
 <div id="step-3-2smr-analyses" class="section level1">
 <h1>Step 3: 2SMR Analyses</h1>
+<p>Now that you have Steiger-filtered and rescaled estimates for GRAPPLE
+at instrument selection</p>
 </div>
 
 
