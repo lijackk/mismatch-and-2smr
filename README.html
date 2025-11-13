@@ -369,66 +369,91 @@ simulation extrapolation (SIMEX), and the replication analysis assessing
 the tradeoff between bias and power in Biobank Japan.</p></li>
 </ol>
 </div>
+<div id="pre-requisite-software" class="section level1">
+<h1>Pre-requisite Software</h1>
+<p>You will need a conda installation and R. We used R 4.5.2 for this
+analysis. We have tested this repository in Linux only. If you want to
+run the whole analysis you will also need a compute cluster. Overall,
+this empirical analysis will involve downloading ~140GB of GWAS summary
+statistics, ~10GB of LD reference panel data, and will produce an
+additional ~2.5 GB of output files.</p>
+<p>To set up a</p>
+</div>
 <div id="step-1-performing-two-sample-mr" class="section level1">
 <h1>Step 1: Performing Two-Sample MR</h1>
-<div id="step-1a-running-grapple-at-1e-5-with-snakemake" class="section level2">
-<h2>Step 1a) Running GRAPPLE at 1e-5 with Snakemake</h2>
+<p>The packages for performing MR are located in the
+<code>TwoSampleMR</code>, <code>GRAPPLE</code>, and <code>MRBEE</code>
+packages. All of these packages are available on Github at the following
+links:</p>
+<ol style="list-style-type: decimal">
+<li>TwoSampleMR: <a href="https://github.com/MRCIEU/TwoSampleMR" class="uri">https://github.com/MRCIEU/TwoSampleMR</a></li>
+<li>GRAPPLE: <a href="https://github.com/jingshuw/GRAPPLE" class="uri">https://github.com/jingshuw/GRAPPLE</a></li>
+<li>MRBEE: <a href="https://github.com/noahlorinczcomi/MRBEE" class="uri">https://github.com/noahlorinczcomi/MRBEE</a></li>
+</ol>
+<p>Other necessary packages for running the Snakemake pipeline include:
+VariantAnnotation (<a href="https://www.bioconductor.org/packages/release/bioc/html/VariantAnnotation.html" class="uri">https://www.bioconductor.org/packages/release/bioc/html/VariantAnnotation.html</a>),
+gwasvcf (<a href="https://github.com/MRCIEU/gwasvcf" class="uri">https://github.com/MRCIEU/gwasvcf</a>), dplyr (CRAN),
+data.table (CRAN), ieugwasr (<a href="https://github.com/MRCIEU/ieugwasr" class="uri">https://github.com/MRCIEU/ieugwasr</a>), and GFA (<a href="https://github.com/jean997/GFA" class="uri">https://github.com/jean997/GFA</a>).</p>
+<div id="step-1a-downloading-summary-statistics" class="section level2">
+<h2>Step 1a) Downloading summary statistics</h2>
+<p>The GWAS summary statistics used in our paper come from either
+OpenGWAS (which will typically be VCF files), the NHGRI-EBI GWAS catalog
+(which are usually non-VCF), or Release 10 of FinnGen (which are also
+usually non-VCF). All of these summary statistics are publicly available
+from their respective websites, but we provide a Zenodo record of these
+summary statistics for ease of use, located <a href="https://zenodo.org/uploads/17584746">here</a>.</p>
+<p>This Zenodo record is divided into two files:
+<code>exposure_sumstats.tar.gz</code> (~80GB) consisting of summary
+statistics from 128 GWAS studies across 26 exposure traits, and
+<code>outcome_sumstats.tar.gz</code> (~50GB) consisting of summary
+statistics from 88 GWAS studies across 21 outcome traits. Unzipping
+these .tar.gz files will yield an “~/exposures/” and “~/outcomes/”
+directory, respectively, with summary statistics divided by traits for
+each.</p>
+</div>
+<div id="step-1b-downloading-ld-reference-panels" class="section level2">
+<h2>Step 1b) Downloading LD reference panels</h2>
+<p>We used reference panels from 1000 Genomes from one of the five
+superpopulations available (AFR, AMR, EAS, EUR, SAS). These reference
+panels are available for FTP download. To obtain these summary
+statistics, create a folder named “ld_reference” in your working
+directory, and in the directory enter the command
+<code>wget http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz</code>. Unpack
+the resulting <code>.tgz</code> file.</p>
+</div>
+<div id="step-1c-running-grapple-at-1e-5-with-snakemake" class="section level2">
+<h2>Step 1c) Running GRAPPLE at 1e-5 with Snakemake</h2>
 <p>We use a slightly modified version of Dr. Jean Morrison’s Snakemake
 pipeline for GFA/MVMR/NESMR located <a href="https://github.com/jean997/gfa_pipeline">in this repository</a>,
 with a focus on the multivariable MR (MVMR) portion. We first ran only
 GRAPPLE at the lenient instrument selection p-value threshold of 1e-5,
-then used the resulting snakemake object to run the MR analyses at a
-more stringent instrument selection threshold of 5e-8. Detailed
-instructions for running the pipeline are located in the README of the
-repository, but are summarized here into general steps:</p>
+then used the resulting snakemake object to run the other MR analyses at
+a more stringent instrument selection threshold of 5e-8.</p>
+<p>The necessary components for running are provided in the following
+directories:</p>
 <ol style="list-style-type: decimal">
-<li><p>Download summary statistics either from OpenGWAS (which will
-typically be VCF files) or the EBI GWAS Catalog (which will usually be
-non-VCF).</p></li>
-<li><p>Create csv files for the trait pairs you wish to run. These CSV
-files should contain key information about the summary statistics
-downloaded in Step 1, with the outcome in the first row and the exposure
-in the second. For specific examples of how to format these CSVs, two
-examples are provided in the snakemake-pipeline directory:
-example_csv1.csv that uses VCF files from OpenGWAS, and example_csv2.csv
-that uses both a VCF file from OpenGWAS and a non-VCF file from the GWAS
-Catalog. Further guidance is also provided in Section 3.2 of the
-original repository README. Note that the summary statistics referenced
-in the examples themselves are not stored in this repository due to
-space limitations.</p></li>
-<li><p>Edit the config_mvmr.yaml file. More information about specific
-options are described in the comments and in the original README of the
-repository in Section 3.3. With the exception of the input files, output
-directory, and <code>ref_path</code>, all options displayed in the YAML
-file ones we used in our analyses. <code>ref_path</code> describes the
-reference panels used for LD pruning. In our study, we used reference
-panels from 1000 Genomes corresponding to the continent (AFR, AMR, EAS,
-EUR, SAS) that most closely matched the exposure. These reference panels
-are publicly accessible and provided by the MRC Integrative Epidemiology
-Unit (MRC-IEU) via FTP download <a href="http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz">here</a>. This link
-was obtained from the documentation of the ieugwasr R package on Github
-provided by the same organization, on the “Running local LD operations”
-page.</p></li>
+<li>CSV files for each pair of exposure and outcome studies, located in
+the <code>snakemake_csv_files/trait_pair_csvs/</code> directory.</li>
+<li>The LD reference panels downloaded and unpacked from Step 1b)</li>
+<li>YAML files for each of 128 exposures, located in the
+<code>all_trait_yaml/</code> directory. This will run MR using this
+trait</li>
 </ol>
-<p>Note that it is only possible to LD prune based on one reference
-panel at a time. This means that we can only run exposures from the same
-population as the reference panel. For our analysis, we created yaml
-files that separated out our study pairs by shared exposure studies,
-resulting in 128 unique yaml files that each ran MVMR based on 88 input
-csv files.</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Run the pipeline using snakemake. The README of the original
-repository describes how to in Section 4. We also provide a shell script
-(run-snakemake-mvmr.sh) that allows the pipeline to be run on a
-computing cluster, as well as a cluster.yaml file to configure various
-cluster parameters (note that by default this yaml file uses
-SLURM).</li>
-</ol>
-<p>The results of this snakemake output are saved into an RDS file. We
-provide an example of such an output in the snakemake-pipeline directory
-(example1_run.RDS). This object contains both the summary statistics for
-instruments used in the 2SMR analysis in <code>grapple_data</code>, as
-well as the GRAPPLE object itself in <code>result</code>.</p>
+<p>The results of this snakemake output are saved into an RDS file into
+a data directory and an output directory. If the snakemake pipeline is
+run successfully, the data directory will contain estimates of residual
+correlations as an RDS file, while the output directory will contain the
+final output of the snakemake pipeline. An sample residual correlation
+estimate file in the data directory is provided in
+example1_Restimate.RDS of the snakemake-pipeline directory, consisting
+of the list showing the 2x2 residual correlation matrix in
+<code>R</code>, and the IDs of the summary statistics used in
+<code>names</code>. A sample final output file in the output directory
+is shown in example1_run.RDS of the snakemake-pipeline directory. This
+object contains both the summary statistics for instruments used in the
+2SMR analysis in <code>grapple_data</code>, as well as the GRAPPLE
+object itself, runtime information, and the IDs of the summary
+statistics used, in <code>result</code>.</p>
 </div>
 <div id="step-1b-running-ivw-and-grapple-at-5e-8" class="section level2">
 <h2>Step 1b) Running IVW and GRAPPLE at 5e-8</h2>
