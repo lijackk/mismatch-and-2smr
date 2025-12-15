@@ -1,3 +1,5 @@
+# NOTE: THIS REPRODUCIBLE CODE IS CURRENTLY UNFINISHED WHILE WE TEST THE PIPELINE ON OUR LOCAL CLUSTER.
+
 # Introduction
 
 This repository contains the code used to perform the analyses in the paper "Mind the gap: characterizing bias due to population mismatch in two-sample Mendelian randomization". It can be divided into three sections: 
