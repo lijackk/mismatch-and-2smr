@@ -36,31 +36,31 @@ new.ivw.se <- vector()
 
 for (i in 1:length(new_mr_studypairs)) {
   current.studypair <- new_mr_studypairs[i]
-  
+
   #==Extracting MR objects==
   new.grapple1e5.object <- new_mr[[which(names(new_mr) == current.studypair)]]$mr_grapple_object1e5
   new.bee1e5.object <- new_mr[[which(names(new_mr) == current.studypair)]]$mr_bee_object1e5
-  
+
   new.grapple5e8.object <- new_mr[[which(names(new_mr) == current.studypair)]]$mr_grapple_object5e8
   new.bee5e8.object <- new_mr[[which(names(new_mr) == current.studypair)]]$mr_bee_object5e8
   new.ivw.object <- new_mr[[which(names(new_mr) == current.studypair)]]$mr_ivw_object
-  
+
   #==Extracting beta hat==
   new.grapple1e5.beta[i] <- ifelse(identical(new.grapple1e5.object, NA), NA, new.grapple1e5.object$beta.hat)
   new.bee1e5.beta[i] <- ifelse(identical(new.bee1e5.object, NA), NA, new.bee1e5.object$theta)
-  
+
   new.grapple5e8.beta[i] <- ifelse(identical(new.grapple5e8.object, NA), NA, new.grapple5e8.object$beta.hat)
   new.bee5e8.beta[i] <- ifelse(identical(new.bee5e8.object, NA), NA, new.bee5e8.object$theta)
   new.ivw.beta[i] <- ifelse(identical(new.ivw.object, NA), NA, new.ivw.object$b)
-  
+
   #==Extracting standard errors==
   new.grapple1e5.se[i] <- ifelse(identical(new.grapple1e5.object, NA), NA, new.grapple1e5.object$beta.var %>% sqrt())
   new.bee1e5.se[i] <- ifelse(identical(new.bee1e5.object, NA), NA, new.bee1e5.object$vartheta %>% sqrt())
-  
+
   new.grapple5e8.se[i] <- ifelse(identical(new.grapple5e8.object, NA), NA, new.grapple5e8.object$beta.var %>% sqrt())
   new.bee5e8.se[i] <- ifelse(identical(new.bee5e8.object, NA), NA, new.bee5e8.object$vartheta %>% sqrt())
-  new.ivw.se[i] <- ifelse(identical(new.ivw.object, NA), NA, new.ivw.object$se)  
-  
+  new.ivw.se[i] <- ifelse(identical(new.ivw.object, NA), NA, new.ivw.object$se)
+
   if (i %% 1000 == 0) print(i)
 }
 
@@ -112,12 +112,12 @@ for (i in 1:dim(mr_table.exactETOS)[1]) {
   if (mr_table.exactETOS$is.bestmatch[i]) { #No need to compare the reference estimate to itself!
     next
   }
-  
+
   #Identifying the reference estimate pair
   ETOS <- mr_table.exactETOS$ETOS[i]
   ETOS.outcome <- mr_table.exactETOS$outcome_id[i]
   ETOS.reference <- mr_table.exactETOS$exposure_id[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS & mr_table.exactETOS$outcome_id == ETOS.outcome]
-  
+
   #Reference estimates and SEs for all five MR estimate types, if they exist
   grapple1e5.reference <- mr_table.exactETOS$grapple1e5.beta.rescale[mr_table.exactETOS$outcome_id == ETOS.outcome & mr_table.exactETOS$exposure_id == ETOS.reference]
   grapple1e5.reference.se <- mr_table.exactETOS$grapple1e5.se.rescale[mr_table.exactETOS$outcome_id == ETOS.outcome & mr_table.exactETOS$exposure_id == ETOS.reference]
@@ -128,8 +128,8 @@ for (i in 1:dim(mr_table.exactETOS)[1]) {
   bee5e8.reference <- mr_table.exactETOS$bee5e8.beta.rescale[mr_table.exactETOS$outcome_id == ETOS.outcome & mr_table.exactETOS$exposure_id == ETOS.reference]
   bee5e8.reference.se <- mr_table.exactETOS$bee5e8.se.rescale[mr_table.exactETOS$outcome_id == ETOS.outcome & mr_table.exactETOS$exposure_id == ETOS.reference]
   ivw.reference <- mr_table.exactETOS$ivw.beta.rescale[mr_table.exactETOS$outcome_id == ETOS.outcome & mr_table.exactETOS$exposure_id == ETOS.reference]
-  ivw.reference.se <- mr_table.exactETOS$ivw.se.rescale[mr_table.exactETOS$outcome_id == ETOS.outcome & mr_table.exactETOS$exposure_id == ETOS.reference]  
-  
+  ivw.reference.se <- mr_table.exactETOS$ivw.se.rescale[mr_table.exactETOS$outcome_id == ETOS.outcome & mr_table.exactETOS$exposure_id == ETOS.reference]
+
   #The mismatching estimates and SEs for both unfiltered/Steiger
   grapple1e5.mismatch <- mr_table.exactETOS$grapple1e5.beta.rescale[i]
   grapple1e5.mismatch.se <- mr_table.exactETOS$grapple1e5.se.rescale[i]
@@ -140,8 +140,8 @@ for (i in 1:dim(mr_table.exactETOS)[1]) {
   bee5e8.mismatch <- mr_table.exactETOS$bee5e8.beta.rescale[i]
   bee5e8.mismatch.se <- mr_table.exactETOS$bee5e8.se.rescale[i]
   ivw.mismatch <- mr_table.exactETOS$ivw.beta.rescale[i]
-  ivw.mismatch.se <- mr_table.exactETOS$ivw.se.rescale[i]  
-  
+  ivw.mismatch.se <- mr_table.exactETOS$ivw.se.rescale[i]
+
   #Calculating concordance Z-scores
   mr_table.exactETOS$zconcord.grapple1e5[i] <- (grapple1e5.mismatch - grapple1e5.reference)/sqrt(grapple1e5.reference.se^2 + grapple1e5.mismatch.se^2)
   mr_table.exactETOS$zconcord.bee1e5[i] <- (bee1e5.mismatch - bee1e5.reference)/sqrt(bee1e5.reference.se^2 + bee1e5.mismatch.se^2)
@@ -168,14 +168,14 @@ mr_table.exactETOS$pconcord.ivw.bh <- p.adjust(mr_table.exactETOS$pconcord.ivw, 
 
 #==Forest plots for LDL-CHD==
 #=Figure 3=
-ldl.chd.1e5 <- mr_table.ETOS[mr_table.ETOS$ETOS %like% "LDL cholesterol" & 
+ldl.chd.1e5 <- mr_table.ETOS[mr_table.ETOS$ETOS %like% "LDL cholesterol" &
                              mr_table.ETOS$outcome_id %in% c("ebi-a-GCST005194", "finngen_R10_I9_CHD", "bbj-a-159", "ieu-a-7"),] %>%
                select("exposure_id", "outcome_id", "grapple1e5.beta.rescale", "grapple1e5.se.rescale", "match.type")
 ldl.chd.1e5$threshold <- "1e-5"
 ldl.chd.1e5 <- left_join(ldl.chd.1e5, mr_table.exactETOS[,c(2,3,29,35)], by = c("exposure_id", "outcome_id"))
 names(ldl.chd.1e5)[c(3,4,7,8)] <- c("beta.rescale", "se.rescale", "zconcord", "pconcord.bh")
 
-ldl.chd.5e8 <- mr_table.ETOS[mr_table.ETOS$ETOS %like% "LDL cholesterol" & 
+ldl.chd.5e8 <- mr_table.ETOS[mr_table.ETOS$ETOS %like% "LDL cholesterol" &
                              mr_table.ETOS$outcome_id %in% c("ebi-a-GCST005194", "finngen_R10_I9_CHD", "bbj-a-159", "ieu-a-7"),] %>%
                select("exposure_id", "outcome_id", "grapple5e8.beta.rescale", "grapple5e8.se.rescale", "match.type")
 ldl.chd.5e8$threshold <- "5e-8"
@@ -198,7 +198,7 @@ ci_pval <- 0.05
 ci_width <- abs(qnorm(ci_pval/2))
 
 ggplot(data = ldl.chd.full, aes(x = beta.rescale, y = exposure_id, col = match.type2, group = threshold, shape = threshold)) + geom_point(position = position_dodge(width=0.5), size = 3.5) + facet_wrap(~factor(paste("Target population:", outcome_id), levels = unique(paste("Target population:", outcome_id))), scales = "fixed") + geom_errorbar(aes(xmin = beta.rescale - ci_width*se.rescale, xmax = beta.rescale + ci_width*se.rescale), width = 0.25, position = position_dodge(width=0.5), data = ldl.chd.full, lwd = 1) + geom_vline(xintercept = 0, lty = 2, col = "black") + labs(y = "", col = "Population Match", x = "2SMR Estimates", shape = "IV Selection Threshold") + theme_bw(base_size = 17.5) + scale_color_manual(values = color_palette) + scale_shape_manual(values = shape_palette)
-ggsave("../expected_figure_output/figure3_ldlchd.png")
+ggsave("reproducible_figures/figure3_ldlchd.png")
 
 #==Analysis of overall shrinkage==
 source("simex_source_func.R")
@@ -223,23 +223,23 @@ for (i in 1:dim(mr_table.exactETOS)[1]) {
     reference.se.5e8[i] <- NA
     next
   }
-  
+
   mismatch.estimate.1e5 <- mr_table.exactETOS$grapple1e5.beta.rescale[i]
   mismatch.estimate.5e8 <- mr_table.exactETOS$grapple5e8.beta.rescale[i]
   ETOS <- mr_table.exactETOS$ETOS[i]
-  
+
   reference.estimate.1e5[i] <- mr_table.exactETOS$grapple1e5.beta.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
   reference.se.1e5[i] <- mr_table.exactETOS$grapple1e5.se.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
   mtr.ratio.1e5[i] <- mismatch.estimate.1e5/reference.estimate.1e5[i]
-  
+
   if (!is.na(mismatch.estimate.5e8)) {
     reference.estimate.5e8[i] <- mr_table.exactETOS$grapple5e8.beta.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
     reference.se.5e8[i] <- mr_table.exactETOS$grapple5e8.se.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
-    mtr.ratio.5e8[i] <- mismatch.estimate.5e8/reference.estimate.5e8[i]    
+    mtr.ratio.5e8[i] <- mismatch.estimate.5e8/reference.estimate.5e8[i]
   } else {
     reference.estimate.5e8[i] <- NA
     reference.se.5e8[i] <- NA
-    mtr.ratio.5e8[i] <- NA  
+    mtr.ratio.5e8[i] <- NA
   }
 }
 
@@ -290,7 +290,7 @@ numbers_5e8 <- c(5e-8,
                      abs(reference.estimate.5e8/reference.se.5e8) > crit.z, na.rm = TRUE),
                  paste0(round(mean(simex.grapple5e8), 3), " (", round(sd(simex.grapple5e8), 3), ")"))
 
-fwrite(data.frame(table_categories, numbers_1e5, numbers_5e8), col.names = FALSE, "../expected_figure_output/table1_zconcord_grapple.csv")
+fwrite(data.frame(table_categories, numbers_1e5, numbers_5e8), col.names = FALSE, "reproducible_figures/table1_zconcord_grapple.csv")
 
 
 #=Supplemental Figure S3: Showing that a linear extrapolation in SIMEX likely works fine=
@@ -304,8 +304,8 @@ simex.grapple5e8.nb <- simex_regression.nb(outcome = mr_table.exactETOS$grapple5
                                      outcome.se = mr_table.exactETOS$grapple5e8.se.rescale[indices.5e8],
                                      predictor = reference.estimate.5e8[indices.5e8],
                                      predictor.se = reference.se.5e8[indices.5e8])
-                                     
-png(file = "../expected_figure_output/figures3_simexlinear.png", width = 1920, height = 1080)
+
+png(file = "reproducible_figures/figures3_simexlinear.png", width = 1920, height = 1080)
 par(mar = c(5.1, 5.1, 4.1, 2.1), mfcol = c(1,2))
 
 plot(c(-1, seq(0, 5, by = 0.25)), c(simex.grapple1e5.nb$simex_estimate, simex.grapple1e5.nb$slope_lambda),
@@ -359,7 +359,7 @@ fwrite(data.frame(paste(exposure_trait, "to", outcome_trait),
                   paste0(round(reference_estimate, 3), " (", reference_p, ")"),
                   zconcord),
        col.names = FALSE,
-       "../expected_figure_output/tables4_grapple_mismatchlarger.csv")
+       "reproducible_figures/tables4_grapple_mismatchlarger.csv")
 
 #=Supplemental Table S5 - same results applied to IVW and BEE=
 mtr.ratio.bee1e5 <- vector()
@@ -384,33 +384,33 @@ for (i in 1:dim(mr_table.exactETOS)[1]) {
     reference.se.bee5e8[i] <- NA
     mtr.ratio.ivw[i] <- NA
     reference.estimate.ivw[i] <- NA
-    reference.se.ivw[i] <- NA    
+    reference.se.ivw[i] <- NA
     next
   }
-  
+
   mismatch.estimate.bee1e5 <- mr_table.exactETOS$bee1e5.beta.rescale[i]
   mismatch.estimate.bee5e8 <- mr_table.exactETOS$bee5e8.beta.rescale[i]
   mismatch.estimate.ivw <- mr_table.exactETOS$ivw.beta.rescale[i]
   ETOS <- mr_table.exactETOS$ETOS[i]
-  
+
   reference.estimate.bee1e5[i] <- mr_table.exactETOS$bee1e5.beta.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
   reference.se.bee1e5[i] <- mr_table.exactETOS$bee1e5.se.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
   mtr.ratio.bee1e5[i] <- mismatch.estimate.bee1e5/reference.estimate.bee1e5[i]
-  
+
   if (!is.na(mismatch.estimate.bee5e8)) {
     reference.estimate.bee5e8[i] <- mr_table.exactETOS$bee5e8.beta.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
     reference.se.bee5e8[i] <- mr_table.exactETOS$bee5e8.se.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
     mtr.ratio.bee5e8[i] <- mismatch.estimate.bee5e8/reference.estimate.bee5e8[i]
     reference.estimate.ivw[i] <- mr_table.exactETOS$ivw.beta.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
     reference.se.ivw[i] <- mr_table.exactETOS$ivw.se.rescale[mr_table.exactETOS$is.bestmatch & mr_table.exactETOS$ETOS == ETOS]
-    mtr.ratio.ivw[i] <- mismatch.estimate.ivw/reference.estimate.ivw[i]        
+    mtr.ratio.ivw[i] <- mismatch.estimate.ivw/reference.estimate.ivw[i]
   } else {
     reference.estimate.bee5e8[i] <- NA
     reference.se.bee5e8[i] <- NA
-    mtr.ratio.bee5e8[i] <- NA  
+    mtr.ratio.bee5e8[i] <- NA
     reference.estimate.ivw[i] <- NA
     reference.se.ivw[i] <- NA
-    mtr.ratio.ivw[i] <- NA 
+    mtr.ratio.ivw[i] <- NA
   }
 }
 
@@ -438,7 +438,7 @@ table_categories <- c("MR Method",
                       "Mismatching Estimates with Significant Concordance z-scores, Same Sign as Reference, Smaller Magnitude",
                       "Mismatching Estimates with Significant Concordance z-scores, Same Sign as Reference, Larger Magnitude",
                       "Mismatching Estimates with Significant Concordance z-scores, Opposite Sign as Reference",
-                      "Mismatching Estimates with Significant Concordance z-scores, Opposite Sign as Reference, Reference and Mismatch MR p-values < 0.05", 
+                      "Mismatching Estimates with Significant Concordance z-scores, Opposite Sign as Reference, Reference and Mismatch MR p-values < 0.05",
                       "SIMEX-Estimated Overall Shrinkage Coefficient, 1000 Bootstrap Resamples")
 
 numbers_ivw <- c("IVW",
@@ -475,7 +475,7 @@ numbers_bee5e8 <- c("BEE (5e-8)",
                  paste0(round(mean(simex.bee5e8), 3), " (", round(sd(simex.bee5e8), 3), ")"))
 
 fwrite(data.frame(table_categories, numbers_ivw, numbers_bee1e5, numbers_5e8), col.names = FALSE,
-       "../expected_figure_output/tables5_bee_ivw.csv")
+       "reproducible_figures/tables5_bee_ivw.csv")
 
 #==Subpopulation-specific SIMEX + Fst analyses==
 source("simex_source_func.R")
@@ -498,48 +498,48 @@ for (i in 1:length(subpopulations)) {
     counter <- counter + 1
     print(paste("=====Starting", selection_pop, "to", paste0(target_pop,"=====")))
     ETOS.pair.selection <- lapply(mr_list.ETOS, function(x){return(unique(x$outcome_pop) == target_pop &
-                                                                     any(x$exposure_pop == target_pop) & 
+                                                                     any(x$exposure_pop == target_pop) &
                                                                      any(x$exposure_pop == selection_pop))}) %>% unlist()
     ETOS.pairs <- mr_list.ETOS[ETOS.pair.selection]
-    
+
     ETOS.pair <- lapply(ETOS.pairs, function(x){return(unique(x$ETOS))}) %>% unlist() %>% unname()
     ETOS.pair.target_outcome <- lapply(ETOS.pairs, function(x){return(unique(x$outcome_id))}) %>% unlist() %>% unname()
-    
+
     ETOS.pair.target_exposure <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == target_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$exposure_id)}) %>% unlist() %>% unname()
     ETOS.pair.selection_exposure <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == selection_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$exposure_id)}) %>% unlist %>% unname()
-    
+
     #==Estimates for GRAPPLE, 1e-5==
     target_to_target.beta_1e5 <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == target_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$grapple1e5.beta.rescale)}) %>% unlist() %>% unname()
     target_to_target.se_1e5 <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == target_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$grapple1e5.se.rescale)}) %>% unlist() %>% unname()
 
     selection_to_target.beta_1e5 <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == selection_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$grapple1e5.beta.rescale)}) %>% unlist %>% unname()
     selection_to_target.se_1e5 <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == selection_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$grapple1e5.se.rescale)}) %>% unlist %>% unname()
-    
+
     #==Estimates for GRAPPLE, 5e-8==
     target_to_target.beta_5e8 <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == target_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$grapple5e8.beta.rescale)}) %>% unlist() %>% unname()
     target_to_target.se_5e8 <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == target_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$grapple5e8.se.rescale)}) %>% unlist() %>% unname()
 
     selection_to_target.beta_5e8 <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == selection_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$grapple5e8.beta.rescale)}) %>% unlist %>% unname()
     selection_to_target.se_5e8 <- lapply(ETOS.pairs, function(x){targets <- x[x$exposure_pop == selection_pop,]; targets2 <- targets[which.max(targets$exposure.n),]; return(targets2$grapple5e8.se.rescale)}) %>% unlist %>% unname()
-    
+
     ETOS.table <- data.frame(ETOS.pair, outcome.id = ETOS.pair.target_outcome,
                              target_exposure.id = ETOS.pair.target_exposure, selection_exposure.id = ETOS.pair.selection_exposure,
                              samepop.1e5 = target_to_target.beta_1e5, samepop.se.1e5 = target_to_target.se_1e5,
                              crosspop.1e5 = selection_to_target.beta_1e5, crosspop.se.1e5 = selection_to_target.se_1e5,
                              samepop.5e8 = target_to_target.beta_5e8, samepop.se.5e8 = target_to_target.se_5e8,
                              crosspop.5e8 = selection_to_target.beta_5e8, crosspop.se.5e8 = selection_to_target.se_5e8)
-    
+
     if (dim(ETOS.table)[1] > 0) {
       ETOS.table.1e5 <- ETOS.table[,c(1:8)]
       ETOS.table.1e5 <- ETOS.table.1e5[complete.cases(ETOS.table.1e5),]
-      
+
       ETOS.table.5e8 <- ETOS.table[,c(1:4, 9:12)]
-      ETOS.table.5e8 <- ETOS.table.5e8[complete.cases(ETOS.table.5e8),]   
+      ETOS.table.5e8 <- ETOS.table.5e8[complete.cases(ETOS.table.5e8),]
     } else { #zero-dimensional case
       ETOS.table.1e5 <- ETOS.table
       ETOS.table.5e8 <- ETOS.table
     }
-    
+
     #Now, we obtain our averages via SIMEX regression.
     print("==1e-5==")
     if (dim(ETOS.table.1e5)[1] >= 8) {
@@ -553,7 +553,7 @@ for (i in 1:length(subpopulations)) {
       simex_mean.1e5 <- "Insufficient ET-OS pairs"
       simex_se.1e5 <- "Insufficient ET-OS pairs"
     }
-    
+
     print("==5e-8==")
     if (dim(ETOS.table.5e8)[1] >= 8) {
       simex_resamples.5e8 <- simex_regression(predictor = ETOS.table.5e8$samepop.5e8, predictor.se = ETOS.table.5e8$samepop.se.5e8,
@@ -565,8 +565,8 @@ for (i in 1:length(subpopulations)) {
       simex_resamples.5e8 <- "Insufficient ET-OS pairs"
       simex_mean.5e8 <- "Insufficient ET-OS pairs"
       simex_se.5e8 <- "Insufficient ET-OS pairs"
-    }    
-    
+    }
+
     master_list[[counter]] <- list(estimate_table = ETOS.table,
                                    simex_resamples.1e5 = simex_resamples.1e5, simex_mean.1e5 = simex_mean.1e5, simex_se.1e5 = simex_se.1e5,
                                    simex_resamples.5e8 = simex_resamples.5e8, simex_mean.5e8 = simex_mean.5e8, simex_se.5e8 = simex_se.5e8)
@@ -606,7 +606,7 @@ rownames(simex5e8.matrix) <- colnames(simex5e8.matrix) <- subpopulations[c(3, 6,
 for (i in 1:length(master_list)) {
   row_index <- which(rownames(simex1e5.matrix) == selection[i])
   col_index <- which(colnames(simex1e5.matrix) == target[i])
-  
+
   if (simex.1e5[i] == "Insufficient ET-OS pairs") {
     simex1e5.matrix[row_index, col_index] <- NA
   } else {
@@ -614,22 +614,22 @@ for (i in 1:length(master_list)) {
                                                     " (", round(as.numeric(simex_se.1e5[i]), 3),
                                                     ") [", ETOS.pair.count.1e5[i], "]")
   }
-  
+
   if (simex.5e8[i] == "Insufficient ET-OS pairs") {
     simex5e8.matrix[row_index, col_index] <- NA
   } else {
     simex5e8.matrix[row_index, col_index] <- paste0(round(as.numeric(simex.5e8[i]), 3),
                                                     " (", round(as.numeric(simex_se.5e8[i]), 3),
                                                     ") [", ETOS.pair.count.5e8[i], "]")
-  }  
+  }
 }
 
-write.csv(simex1e5.matrix, "../expected_figure_output/figures2_simex1e5.csv")
-write.csv(simex5e8.matrix, "../expected_figure_output/figures2_simex5e8.csv")
+write.csv(simex1e5.matrix, "reproducible_figures/figures2_simex1e5.csv")
+write.csv(simex5e8.matrix, "reproducible_figures/figures2_simex5e8.csv")
 
-fixation_indices <- c(0.083, 0.118, 0.212, NA, 0.110, 0.009, 
+fixation_indices <- c(0.083, 0.118, 0.212, NA, 0.110, 0.009,
                       0.083, 0.019, 0.156, NA, 0.021, 0.085,
-                      0.118, 0.019, 0.178, NA, 0.007, 0.119, 
+                      0.118, 0.019, 0.178, NA, 0.007, 0.119,
                       0.212, 0.156, 0.178, NA, 0.179, 0.213,
                       NA, NA, NA, NA, NA, NA,
                       0.110, 0.021, 0.007, 0.179, NA, 0.111,
@@ -654,10 +654,10 @@ summary(lm(simex_table.5e8$simex ~ simex_table.5e8$fst, weights = (1/simex_table
 fst.slope.5e8 <- lm(simex_table.5e8$simex ~ simex_table.5e8$fst, weights = (1/simex_table.5e8$simex_se)^2)
 
 ggplot(data = simex_table.1e5, aes(x = fst, y = simex, col = factor(fst))) + geom_point(size = 2) + labs(title = "", x = "Approximate Fixation Index (Fst)", y = "Estimated Cross- vs. Same-Population\nRegression Slope") + theme_bw(base_size = 17.5) + geom_hline(yintercept = 0) + geom_abline(slope = fst.slope.1e5$coefficients[2], intercept = fst.slope.1e5$coefficients[1], lty = 2) + geom_errorbar(mapping = aes(ymin = simex - 1.96*simex_se, ymax = simex + 1.96*simex_se)) + guides(col ="none")
-ggsave("../expected_figure_output/figure4_fst1e5.png")
+ggsave("reproducible_figures/figure4_fst1e5.png")
 
 ggplot(data = simex_table.5e8, aes(x = fst, y = simex, col = factor(fst))) + geom_point(size = 2) + labs(title = "", x = "Approximate Fixation Index (Fst)", y = "Estimated Cross- vs. Same-Population\nRegression Slope") + theme_bw(base_size = 17.5) + geom_hline(yintercept = 0) + geom_abline(slope = fst.slope.5e8$coefficients[2], intercept = fst.slope.5e8$coefficients[1], lty = 2) + geom_errorbar(mapping = aes(ymin = simex - 1.96*simex_se, ymax = simex + 1.96*simex_se)) + guides(col ="none")
-ggsave("../expected_figure_output/figure4_fst5e8.png")
+ggsave("reproducible_figures/figure4_fst5e8.png")
 
 #=Supplemental Figure S4 - Scatterplots showing SIMEX slopes for specific subpopulations=
 
@@ -684,16 +684,16 @@ for (pair in intersect(simex_table.1e5$pop_pair, simex_table.5e8$pop_pair)) {
   i <- which(names(master_list) == pair)
   target.pop <- gsub("(.*) to (.*)", "\\2", pair) %>% shortened.names()
   selection.pop <- gsub("(.*) to (.*)", "\\1", pair) %>% shortened.names()
-  
-  png(file = paste0("../expected_figure_output/figure_s4/", target.pop, "_", selection.pop,".png"),
+
+  png(file = paste0("reproducible_figures/figure_s4/", target.pop, "_", selection.pop,".png"),
       width = 1920, height = 1080)
   par(mar = c(5.1, 5.1, 4.1, 2.1), mfcol = c(1,2))
-  
+
   plot.min <- min(min(master_list[[i]]$estimate_table$samepop.1e5, na.rm = TRUE) - 0.02,
                   min(master_list[[i]]$estimate_table$crosspop.1e5, na.rm = TRUE) - 0.02, na.rm = TRUE)
   plot.max <- max(max(master_list[[i]]$estimate_table$samepop.1e5, na.rm = TRUE) + 0.02,
                   max(master_list[[i]]$estimate_table$crosspop.1e5, na.rm = TRUE) + 0.02, na.rm = TRUE)
-  
+
   plot(master_list[[i]]$estimate_table$samepop.1e5, master_list[[i]]$estimate_table$crosspop.1e5,
      xlim = c(plot.min, plot.max),
      ylim = c(plot.min, plot.max),
@@ -705,13 +705,13 @@ for (pair in intersect(simex_table.1e5$pop_pair, simex_table.5e8$pop_pair)) {
   abline(v = 0, col = "black")
   abline(a = 0, b = 1, col = "black")
   abline(a = 0, b = master_list[[i]]$simex_mean.1e5, lty = 2)
-  
+
   plot.min <- min(min(master_list[[i]]$estimate_table$samepop.5e8) - 0.02,
                   min(master_list[[i]]$estimate_table$crosspop.5e8, na.rm = TRUE) - 0.02, na.rm = TRUE)
   plot.max <- max(max(master_list[[i]]$estimate_table$samepop.5e8) + 0.02,
                   max(master_list[[i]]$estimate_table$crosspop.5e8, na.rm = TRUE) + 0.02, na.rm = TRUE)
 
-  
+
   plot(master_list[[i]]$estimate_table$samepop.5e8, master_list[[i]]$estimate_table$crosspop.5e8,
      xlim = c(plot.min, plot.max),
      ylim = c(plot.min, plot.max),
@@ -723,9 +723,9 @@ for (pair in intersect(simex_table.1e5$pop_pair, simex_table.5e8$pop_pair)) {
   abline(v = 0, col = "black")
   abline(a = 0, b = 1, col = "black")
   abline(a = 0, b = master_list[[i]]$simex_mean.5e8, lty = 2)
-  
+
   dev.off()
-  print(pair) 
+  print(pair)
 }
 
 #that leaves just the population pairs specific to 1e-5, most of which are African
@@ -735,13 +735,13 @@ for (pair in setdiff(simex_table.1e5$pop_pair, simex_table.5e8$pop_pair)) {
   i <- which(names(master_list) == pair)
   target.pop <- gsub("(.*) to (.*)", "\\2", pair) %>% shortened.names()
   selection.pop <- gsub("(.*) to (.*)", "\\1", pair) %>% shortened.names()
-  
-  png(file = paste0("../expected_figure_output/figure_s4/", target.pop, "_", selection.pop,".png"),
+
+  png(file = paste0("reproducible_figures/figure_s4/", target.pop, "_", selection.pop,".png"),
       width = 1920, height = 1080)
   par(mar = c(5.1, 5.1, 4.1, 2.1), mfcol = c(1,2))
   plot.min <- min(min(master_list[[i]]$estimate_table$samepop.1e5) - 0.02, min(master_list[[i]]$estimate_table$crosspop.1e5) - 0.02)
   plot.max <- max(max(master_list[[i]]$estimate_table$samepop.1e5) + 0.02, max(master_list[[i]]$estimate_table$crosspop.1e5) + 0.02)
-  
+
   plot(master_list[[i]]$estimate_table$samepop.1e5, master_list[[i]]$estimate_table$crosspop.1e5,
      xlim = c(plot.min, plot.max),
      ylim = c(plot.min, plot.max),
@@ -753,7 +753,7 @@ for (pair in setdiff(simex_table.1e5$pop_pair, simex_table.5e8$pop_pair)) {
   abline(v = 0, col = "black")
   abline(a = 0, b = 1, col = "black")
   abline(a = 0, b = master_list[[i]]$simex_mean.1e5, lty = 2)
-  
+
   dev.off()
   print(pair)
 }
@@ -796,18 +796,18 @@ for (i in 1:length(traitpairs)) {
   traitpair_estimates <- mr_table.pops[mr_table.pops$trait_pair == traitpairs[i],]
   samepop_index <- which(traitpair_estimates$exposure_pop == "Biobank Japan" & traitpair_estimates$outcome_pop == "Biobank Japan")
   crosspop_index <- which(traitpair_estimates$exposure_pop == "UKBB + BBJ meta-analysis" & traitpair_estimates$outcome_pop == "Biobank Japan")
-  
+
   outcome.id[i] <- traitpair_estimates$outcome_id[samepop_index]
   samepop.id[i] <- traitpair_estimates$exposure_id[samepop_index]
   crosspop.id[i] <- traitpair_estimates$exposure_id[crosspop_index]
-  
+
   samepop.1e5[i] <- traitpair_estimates$grapple1e5.beta[samepop_index]
   samepop.se.1e5[i] <- traitpair_estimates$grapple1e5.se[samepop_index]
   samepop.p.1e5[i] <- 2 * pnorm(abs(samepop.1e5[i]/samepop.se.1e5[i]), lower.tail = FALSE)
   crosspop.1e5[i] <- traitpair_estimates$grapple1e5.beta[crosspop_index]
   crosspop.se.1e5[i] <- traitpair_estimates$grapple1e5.se[crosspop_index]
   crosspop.p.1e5[i] <- 2 * pnorm(abs(crosspop.1e5[i]/crosspop.se.1e5[i]), lower.tail = FALSE)
-  
+
   samepop.5e8[i] <- traitpair_estimates$grapple5e8.beta[samepop_index]
   samepop.se.5e8[i] <- traitpair_estimates$grapple5e8.se[samepop_index]
   samepop.p.5e8[i] <- 2 * pnorm(abs(samepop.5e8[i]/samepop.se.5e8[i]), lower.tail = FALSE)
@@ -826,7 +826,7 @@ sakaue_bbj_table <- data.frame(traitpairs, outcome.id, samepop.id, crosspop.id,
 sakaue_bbj_table$sig_status.1e5 <- ifelse(sakaue_bbj_table$crosspop.p.1e5 < 0.05/195,
                                       ifelse(sakaue_bbj_table$samepop.p.1e5 < 0.05/195, "Significance Maintained", "Gain of Significance"),
                                       ifelse(sakaue_bbj_table$samepop.p.1e5 < 0.05/195, "Loss of Significance", "Non-Significance Maintained"))
-                                      
+
 sakaue_bbj_table$sig_status.5e8 <- ifelse(sakaue_bbj_table$crosspop.p.5e8 < 0.05/195,
                                       ifelse(sakaue_bbj_table$samepop.p.5e8 < 0.05/195, "Significance Maintained", "Gain of Significance"),
                                       ifelse(sakaue_bbj_table$samepop.p.5e8 < 0.05/195, "Loss of Significance", "Non-Significance Maintained"))
@@ -859,32 +859,32 @@ rep2.targetpop <- vector()
 rep.minp <- vector()
 
 for (i in 1:length(sig_ukbb_bbj_1e5)) {
-  traitpair.estimates.1e5 <- mr_table.pops[mr_table.pops$trait_pair == replication_table.1e5$traitpairs[i] & 
-                                                   !(mr_table.pops$exposure_pop %in% c("UK Biobank", "Biobank Japan")) & 
+  traitpair.estimates.1e5 <- mr_table.pops[mr_table.pops$trait_pair == replication_table.1e5$traitpairs[i] &
+                                                   !(mr_table.pops$exposure_pop %in% c("UK Biobank", "Biobank Japan")) &
                                                    mr_table.pops$exposure_pop == mr_table.pops$outcome_pop,] %>%
                                                    select("exposure_pop", "grapple1e5.beta", "grapple1e5.se")
   traitpair.estimates.1e5$grapple1e5.p <- 2 * pnorm(abs(traitpair.estimates.1e5$grapple1e5.beta/traitpair.estimates.1e5$grapple1e5.se),
                                                     lower.tail = FALSE)
-  
+
   if (dim(traitpair.estimates.1e5)[1] >=1 ) {
     rep.pairs.available[i] <- dim(traitpair.estimates.1e5)[1]
-    
+
     #we grab all summary statistics
     rep1.beta[i] <- traitpair.estimates.1e5$grapple1e5.beta[1]
     rep1.pvalue[i] <- traitpair.estimates.1e5$grapple1e5.p[1]
     rep1.targetpop[i] <- traitpair.estimates.1e5$exposure_pop[1]
-    
+
     rep2.beta[i] <- NA
     rep2.pvalue[i] <- NA
     rep2.targetpop[i] <- NA
-    
+
     #we have only 1 or 2 pairs available for replication, which means I can get away with some pretty crappy code
     if (rep.pairs.available[i] == 2) {
         rep2.beta[i] <- traitpair.estimates.1e5$grapple1e5.beta[2]
         rep2.pvalue[i] <- traitpair.estimates.1e5$grapple1e5.p[2]
-        rep2.targetpop[i] <- traitpair.estimates.1e5$exposure_pop[2]    
+        rep2.targetpop[i] <- traitpair.estimates.1e5$exposure_pop[2]
     }
-    
+
     sign_align.1e5 <- traitpair.estimates.1e5[sign(traitpair.estimates.1e5$grapple1e5.beta) == sign(replication_table.1e5$crosspop.1e5[i]),]
     if (dim(sign_align.1e5)[1] >= 1) {
       rep.minp[i] <- min(sign_align.1e5$grapple1e5.p)
@@ -894,8 +894,8 @@ for (i in 1:length(sig_ukbb_bbj_1e5)) {
   } else {
     rep.pairs.available[i] <- 0
     rep1.beta[i] <- rep2.beta[i] <- rep1.pvalue[i] <- rep2.pvalue[i] <- rep1.targetpop[i] <- rep2.targetpop[i] <- NA
-    rep.minp[i] <- NA   
-  } 
+    rep.minp[i] <- NA
+  }
 }
 
 replication_table.1e5$rep.pairs.available <- rep.pairs.available
@@ -928,32 +928,32 @@ rep2.targetpop <- vector()
 rep.minp <- vector()
 
 for (i in 1:length(sig_ukbb_bbj_5e8)) {
-  traitpair.estimates.5e8 <- mr_table.pops[mr_table.pops$trait_pair == replication_table.5e8$traitpairs[i] & 
-                                                   !(mr_table.pops$exposure_pop %in% c("UK Biobank", "Biobank Japan")) & 
+  traitpair.estimates.5e8 <- mr_table.pops[mr_table.pops$trait_pair == replication_table.5e8$traitpairs[i] &
+                                                   !(mr_table.pops$exposure_pop %in% c("UK Biobank", "Biobank Japan")) &
                                                    mr_table.pops$exposure_pop == mr_table.pops$outcome_pop,] %>%
                                                    select("exposure_pop", "grapple5e8.beta", "grapple5e8.se")
   traitpair.estimates.5e8$grapple5e8.p <- 2 * pnorm(abs(traitpair.estimates.5e8$grapple5e8.beta/traitpair.estimates.5e8$grapple5e8.se),
                                                     lower.tail = FALSE)
-  
+
   if (dim(traitpair.estimates.5e8)[1] >=1 ) {
     rep.pairs.available[i] <- dim(traitpair.estimates.5e8)[1]
-    
+
     #we grab all summary statistics
     rep1.beta[i] <- traitpair.estimates.5e8$grapple5e8.beta[1]
     rep1.pvalue[i] <- traitpair.estimates.5e8$grapple5e8.p[1]
     rep1.targetpop[i] <- traitpair.estimates.5e8$exposure_pop[1]
-    
+
     rep2.beta[i] <- NA
     rep2.pvalue[i] <- NA
     rep2.targetpop[i] <- NA
-    
+
     #we have only 1 or 2 pairs available for replication, which means I can get away with some pretty crappy code
     if (rep.pairs.available[i] == 2) {
         rep2.beta[i] <- traitpair.estimates.5e8$grapple5e8.beta[2]
         rep2.pvalue[i] <- traitpair.estimates.5e8$grapple5e8.p[2]
-        rep2.targetpop[i] <- traitpair.estimates.5e8$exposure_pop[2]    
+        rep2.targetpop[i] <- traitpair.estimates.5e8$exposure_pop[2]
     }
-    
+
     sign_align.5e8 <- traitpair.estimates.5e8[sign(traitpair.estimates.5e8$grapple5e8.beta) == sign(replication_table.5e8$crosspop.5e8[i]),]
     if (dim(sign_align.5e8)[1] >= 1) {
       rep.minp[i] <- min(sign_align.5e8$grapple5e8.p)
@@ -963,8 +963,8 @@ for (i in 1:length(sig_ukbb_bbj_5e8)) {
   } else {
     rep.pairs.available[i] <- 0
     rep1.beta[i] <- rep2.beta[i] <- rep1.pvalue[i] <- rep2.pvalue[i] <- rep1.targetpop[i] <- rep2.targetpop[i] <- NA
-    rep.minp[i] <- NA   
-  } 
+    rep.minp[i] <- NA
+  }
 }
 
 replication_table.5e8$rep.pairs.available <- rep.pairs.available
@@ -1016,7 +1016,7 @@ numbers_5e8 <- c("5e-8",
                  sum(sakaue_bbj_table$samepop.p.5e8 < 0.05/195 & sakaue_bbj_table$crosspop.p.5e8 >= 0.05/195),
                  paste0(sum(c(rep_table.5e8[2,1], rep_table.5e8[2,3])), " (", rep_table.5e8[2,3], ")"))
 
-fwrite(data.frame(table_categories, numbers_1e5, numbers_5e8), col.names = FALSE, "../expected_figure_output/table2_sakaue_bbj.csv")
+fwrite(data.frame(table_categories, numbers_1e5, numbers_5e8), col.names = FALSE, "reproducible_figures/table2_sakaue_bbj.csv")
 
 #=Supplemental Table S7=
 table_s7 <- replication_table.1e5 %>% select("traitpairs", "sig_status.1e5", "rep.pairs.available",
@@ -1029,7 +1029,7 @@ table_s7$sig_status.1e5 <- ifelse(table_s7$sig_status.1e5 == "Gain of Significan
 table_s7$sig_status.1e5 <- factor(table_s7$sig_status.1e5, levels = c("Meta analysis Only", "BBJ Only")) #sorting for more intuitive ordering
 table_s7 <- table_s7[order(table_s7$sig_status.1e5, table_s7$traitpairs, decreasing = FALSE),]
 fwrite(table_s7 %>% select("traitpairs", "sig_status.1e5", "replication.pops", "replicated.1e5"),
-       "../expected_figure_output/tables7_replication1e5.csv")
+       "reproducible_figures/tables7_replication1e5.csv")
 #=Supplemental Table S8=
 table_s8 <- replication_table.5e8 %>% select("traitpairs", "sig_status.5e8", "rep.pairs.available",
                                              "rep1.targetpop", "rep2.targetpop", "replicated.5e8")
@@ -1041,7 +1041,7 @@ table_s8$sig_status.5e8 <- ifelse(table_s8$sig_status.5e8 == "Gain of Significan
 table_s8$sig_status.5e8 <- factor(table_s8$sig_status.5e8, levels = c("Meta analysis Only", "BBJ Only")) #sorting for more intuitive ordering
 table_s8 <- table_s8[order(table_s8$sig_status.5e8, table_s8$traitpairs, decreasing = FALSE),]
 fwrite(table_s8 %>% select("traitpairs", "sig_status.5e8", "replication.pops", "replicated.5e8"),
-       "../expected_figure_output/tables8_replication5e8.csv")
+       "reproducible_figures/tables8_replication5e8.csv")
 
 #==Results without Steiger filtering for GRAPPLE at both thresholds==
 
@@ -1054,24 +1054,24 @@ unfiltered.grapple5e8.se <- vector()
 
 for (i in 1:length(new_mr_studypairs)) {
   current.studypair <- new_mr_studypairs[i]
-  
+
   #==Extracting MR objects==
   unfiltered.grapple1e5.object <- new_mr[[which(names(new_mr) == current.studypair)]]$mr_grapple_object1e5.unfiltered
   unfiltered.grapple5e8.object <- new_mr[[which(names(new_mr) == current.studypair)]]$mr_grapple_object5e8.unfiltered
-  
+
   #==Extracting beta hat==
   unfiltered.grapple1e5.beta[i] <- ifelse(identical(unfiltered.grapple1e5.object, NA), NA, unfiltered.grapple1e5.object$beta.hat)
   unfiltered.grapple5e8.beta[i] <- ifelse(identical(unfiltered.grapple5e8.object, NA), NA, unfiltered.grapple5e8.object$beta.hat)
-  
+
   #==Extracting standard errors==
   unfiltered.grapple1e5.se[i] <- ifelse(identical(unfiltered.grapple1e5.object, NA), NA, unfiltered.grapple1e5.object$beta.var %>% sqrt())
   unfiltered.grapple5e8.se[i] <- ifelse(identical(unfiltered.grapple5e8.object, NA), NA, unfiltered.grapple5e8.object$beta.var %>% sqrt())
-  
+
   if (i %% 1000 == 0) print(i)
 }
 
 #=Supplemental Figure 1=
-png(file = "../expected_figure_output/figures1_unfiltered_vs_steiger.png", width = 1920, height = 1080)
+png(file = "reproducible_figures/figures1_unfiltered_vs_steiger.png", width = 1920, height = 1080)
 par(mar = c(5.1, 5.1, 4.1, 2.1), mfcol = c(1,2))
 
 plot(unfiltered.grapple1e5.beta, mr_table$grapple1e5.beta,
@@ -1117,24 +1117,24 @@ for (i in 1:dim(table_s6)[1]) {
   if (table_s6$is.bestmatch[i]) { #No need to compare the reference estimate to itself!
     next
   }
-  
+
   #Identifying the reference estimate pair
   ETOS <- table_s6$ETOS[i]
   ETOS.outcome <- table_s6$outcome_id[i]
   ETOS.reference <- table_s6$exposure_id[table_s6$is.bestmatch & table_s6$ETOS == ETOS & table_s6$outcome_id == ETOS.outcome]
-  
+
   #Reference estimates and SEs for all five MR estimate types, if they exist
   grapple1e5.reference <- table_s6$grapple1e5.beta.rescale[table_s6$outcome_id == ETOS.outcome & table_s6$exposure_id == ETOS.reference]
   grapple1e5.reference.se <- table_s6$grapple1e5.se.rescale[table_s6$outcome_id == ETOS.outcome & table_s6$exposure_id == ETOS.reference]
   grapple5e8.reference <- table_s6$grapple5e8.beta.rescale[table_s6$outcome_id == ETOS.outcome & table_s6$exposure_id == ETOS.reference]
   grapple5e8.reference.se <- table_s6$grapple5e8.se.rescale[table_s6$outcome_id == ETOS.outcome & table_s6$exposure_id == ETOS.reference]
-  
+
   #The mismatching estimates and SEs for both unfiltered/Steiger
   grapple1e5.mismatch <- table_s6$grapple1e5.beta.rescale[i]
   grapple1e5.mismatch.se <- table_s6$grapple1e5.se.rescale[i]
   grapple5e8.mismatch <- table_s6$grapple5e8.beta.rescale[i]
   grapple5e8.mismatch.se <- table_s6$grapple5e8.se.rescale[i]
-  
+
   #Calculating concordance Z-scores
   table_s6$zconcord.grapple1e5[i] <- (grapple1e5.mismatch - grapple1e5.reference)/sqrt(grapple1e5.reference.se^2 + grapple1e5.mismatch.se^2)
   table_s6$zconcord.grapple5e8[i] <- (grapple5e8.mismatch - grapple5e8.reference)/sqrt(grapple5e8.reference.se^2 + grapple5e8.mismatch.se^2)
@@ -1167,23 +1167,23 @@ for (i in 1:dim(table_s6)[1]) {
     reference.se.5e8[i] <- NA
     next
   }
-  
+
   mismatch.estimate.1e5 <- table_s6$grapple1e5.beta.rescale[i]
   mismatch.estimate.5e8 <- table_s6$grapple5e8.beta.rescale[i]
   ETOS <- table_s6$ETOS[i]
-  
+
   reference.estimate.1e5[i] <- table_s6$grapple1e5.beta.rescale[table_s6$is.bestmatch & table_s6$ETOS == ETOS]
   reference.se.1e5[i] <- table_s6$grapple1e5.se.rescale[table_s6$is.bestmatch & table_s6$ETOS == ETOS]
   mtr.ratio.1e5[i] <- mismatch.estimate.1e5/reference.estimate.1e5[i]
-  
+
   if (!is.na(mismatch.estimate.5e8)) {
     reference.estimate.5e8[i] <- table_s6$grapple5e8.beta.rescale[table_s6$is.bestmatch & table_s6$ETOS == ETOS]
     reference.se.5e8[i] <- table_s6$grapple5e8.se.rescale[table_s6$is.bestmatch & table_s6$ETOS == ETOS]
-    mtr.ratio.5e8[i] <- mismatch.estimate.5e8/reference.estimate.5e8[i]    
+    mtr.ratio.5e8[i] <- mismatch.estimate.5e8/reference.estimate.5e8[i]
   } else {
     reference.estimate.5e8[i] <- NA
     reference.se.5e8[i] <- NA
-    mtr.ratio.5e8[i] <- NA  
+    mtr.ratio.5e8[i] <- NA
   }
 }
 
@@ -1216,4 +1216,4 @@ numbers_5e8 <- c("5e-8",
                      abs(table_s6$grapple5e8.beta.rescale/table_s6$grapple5e8.se.rescale) > crit.z &
                      abs(reference.estimate.5e8/reference.se.5e8) > crit.z, na.rm = TRUE))
 
-fwrite(data.frame(table_categories, numbers_1e5, numbers_5e8), col.names = FALSE, "../expected_figure_output/tables6_zconcord_grapple_unfiltered.csv")
+fwrite(data.frame(table_categories, numbers_1e5, numbers_5e8), col.names = FALSE, "reproducible_figures/tables6_zconcord_grapple_unfiltered.csv")
