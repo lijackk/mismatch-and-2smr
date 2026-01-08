@@ -1,0 +1,95 @@
+# Snakemake pipeline for running our analyses
+#
+#
+# LICENSE: CC0. Do what you want with the code, but it has no guarantees.
+#          https://creativecommons.org/share-your-work/public-domain/cc0/
+#
+#
+# source activate cause_large
+#
+# ./run_snakemake.sh
+#
+# don't forget to update cluster.yaml
+
+import pandas as pd
+
+from snakemake.utils import validate
+
+localrules: all
+###### Load configuration file
+configfile: "config.yaml"
+#validate(config, schema="schemas/config.schema.yaml")
+
+##Reading in the inputs
+exposure_csv = config["input"]["exposure_csv"]
+exposure_info = pd.read_csv(exposure_csv, na_filter=False)
+
+outcome_csv = config["input"]["outcome_csv"]
+outcome_info = pd.read_csv(outcome_csv, na_filter=False)
+
+# Defining the outputs
+sumstat_dir = config["out"]["sumstat_dir"] #where summary statistics go
+steiger_dir = config["out"]["steiger_dir"] #where Steiger-filtered summary statistics go
+Restimate_dir = config["out"]["Restimate_dir"] #where the residual correlation estimates go
+mr_dir = config["out"]["mr_dir"] #where MR estimates go
+output_dir = config["out"]["output_dir"] #where the final list of MR estimates ends up
+
+rule all:
+    input: inp = expand(mr_dir + "{exposure}__{outcome}.MRestimate_list.RDS", exposure = exposure_info['name'].tolist(), outcome = outcome_info['name'].tolist())
+
+##Writing a function to extract the raw data path for a specific exposure study
+def get_exposure(wcs):
+  global exposure_info
+  return exposure_info.loc[exposure_info['name'] == wcs.exposure, 'raw_data_path'].iloc[0]
+
+##Writing a function to extract the raw data path for a specific outcome study
+def get_outcome(wcs):
+  global outcome_info
+  return outcome_info.loc[outcome_info['name'] == wcs.outcome, 'raw_data_path'].iloc[0]
+
+##Defining a function that outputs the path of the population-specific LD reference panel to use for an exposure
+ref_path = config["input"]["LD_ref_path"]
+def get_LD(wcs):
+  global exposure_info
+  global ref_path
+  population = exposure_info.loc[exposure_info['name'] == wcs.exposure, 'pop'].iloc[0]
+  return [ref_path + population + i for i in [".bim", ".bed", ".fam"]]
+
+##Step 1: combining summary statistics from exposure and outcome by chromosome
+rule get_sumstats_chrom:
+  input: exp = get_exposure, out = get_outcome
+  output: sumstat_combined = temp(sumstat_dir + "{exposure}__{outcome}.zmat.{chrom}.RDS")
+  wildcard_constraints: chrom = r"\d+"
+  script: "R/01_combine_sumstat_chrom.R"
+
+##Step 2: LD pruning the combined summary statistics from Step 1 (still by chromosome) and estimating R
+rule ld_prune_plink:
+   input: LD = get_LD, sumstat_combined = sumstat_dir + "{exposure}__{outcome}.zmat.{chrom}.RDS"
+   output: sumstat_prune = temp(sumstat_dir + "{exposure}__{outcome}.zmat.{chrom}.pruned.RDS")
+   wildcard_constraints: chrom = r"\d+"   
+   script: "R/02_ld_prune_chrom.R"
+   
+##Step 3: Combining the LD-pruned data from Step 2, calculating residual correlation, obtaining pruned data
+rule combine_pruned_sumstats:
+  input: sumstat_prune = expand(sumstat_dir + "{{exposure}}__{{outcome}}.zmat.{chrom}.pruned.RDS", chrom = range(1, 23))
+  output: sumstat_final = sumstat_dir + "{exposure}__{outcome}.sumstats.RDS", Restimate = Restimate_dir + "{exposure}__{outcome}.Restimate.RDS"
+  script: "R/03_combine_pruned.R"
+
+##Step 4: Performing Steiger filtering on the summary statistics
+rule steiger_filter:
+  input: sumstat_final = sumstat_dir + "{exposure}__{outcome}.sumstats.RDS"
+  output: steiger_sumstat = steiger_dir + "{exposure}__{outcome}.steiger_sumstats.RDS"
+  script: "R/04_steiger.R"
+
+##Step 5: Calculating the MR estimates, then rescaling them
+rule grapple_ivw_bee:
+  input: Restimate = Restimate_dir + "{exposure}__{outcome}.Restimate.RDS", steiger_sumstat = steiger_dir + "{exposure}__{outcome}.steiger_sumstats.RDS"
+  output: mr_results = mr_dir + "{exposure}__{outcome}.MRestimate_list.RDS"
+  script: "R/05_MR.R"
+
+###Step 6: Collecting all of the estimates from Step 3 into a list of dataframes, one for each type of MR estimate
+#rule collect:
+#  input: mr_results = expand(mr_dir + "{exposure}__{outcome}.MRestimate_list.RDS}")
+#  output: out = "output_dir + final_table.RDS"
+#  script: "R/06_compile.R"
+  

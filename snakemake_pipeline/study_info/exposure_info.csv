@@ -1,0 +1,129 @@
+Trait,Study ID,Population (general),Population (specific),Short Study Name,Majority Superpopulation,Sample Size,Units,Mean,SD,Standardized Unit,Standardized Mean,Standardized SD,Transformation Method,Scalable,Scaling Factor
+LDL cholesterol,ieu-b-110,EUR,UK,UK Biobank,EUR,"440,546",mmol/L,3.57,0.87,mmol/L,3.57,0.87,Inverse normalization,Yes,0.87
+LDL cholesterol,bbj-a-31,EAS,Japan,Biobank Japan,EAS,"72,866",mg/dL,130.81,40.97,mmol/L,3.382725627,1.059477631,Z-score transformation,Yes,1.059477631
+LDL cholesterol,ebi-a-GCST008037,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"32,221",mg/dL,132.697,39.482,mmol/L,3.431523145,1.02099819,"Adjusted, but untransformed",Yes,0.02585984
+LDL cholesterol,ebi-a-GCST90018961,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,416487,mmol/L,3.6,0.9,mmol/L,3.6,0.9,Meta-analysis,No,NA
+LDL cholesterol,ebi-a-GCST90101745,AFR,Sub-Saharan African,Sub-Saharan African meta-analysis,AFR,24515,mmol/L,2.29,0.89,mmol/L,2.29,0.89,Meta-analysis,No,NA
+Body Mass Index,ukb-b-19953,EUR,UK,UK Biobank,EUR,461460,kg/m2,27.2984,4.76639,kg/m2,27.2984,4.76639,Inverse normalization,Yes,4.76639
+Body Mass Index,bbj-a-1,EAS,Japan,Biobank Japan,EAS,"158,284",kg/m2,23.3,3.7,kg/m2,23.3,3.7,Inverse normalization,Yes,3.7
+Body Mass Index,finngen_R10_BMI_IRN,EUR,Finn,FinnGen (Release 10),EUR,290820,kg/m2,25.5,4.6,kg/m2,25.5,4.6,Inverse normalization,Yes,4.6
+Body Mass Index,ukb-b-2303,EUR,UK,UK Biobank,EUR,454884,kg/m2,27.3345,4.75464,kg/m2,27.3345,4.75464,Inverse normalization,Yes,4.75464
+Body Mass Index,ebi-a-GCST008025,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"49,335",kg/m2,29.527,6.065,kg/m2,29.527,6.065,Inverse normalization,Yes,6.065
+Body Mass Index,ukb-e-23104_CSA,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,658",kg/m2,1,1,kg/m2,???,???,Inverse normalization,No,NA
+Hemoglobin A1c,ebi-a-GCST90018958,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,415403,mmol/mol,35.9,6.5,mmol/mol,35.9,6.5,Meta-analysis,No,NA
+Hemoglobin A1c,ebi-a-GCST90018738,EAS,Japan,Biobank Japan,EAS,71221,%,6,1.1,mmol/mol,42.08,12.023,"Not clear, likely inverse normalized",Yes,12.023
+Hemoglobin A1c,GCST90278632,EAS,Taiwan,Taiwan Biobank,EAS,92615,%,5.76,0.74,mmol/mol,39.4568,8.0882,Inverse normalization,Yes,8.0882
+Hemoglobin A1c,ebi-a-GCST008034,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"11,178",mmol/mol,36.786,4.512,mmol/mol,36.786,4.512,Rank normalization,No,NA
+Systolic Blood Pressure,ukb-b-20175,EUR,UK,UK Biobank,EUR,436419,mmHg,138.371,19.4671,mmHg,138.371,19.4671,Inverse normalization,Yes,19.4671
+Systolic Blood Pressure,bbj-a-52,EAS,Japan,Biobank Japan,EAS,"136,597",mmHg,134.68,19.69,mmHg,134.68,19.69,Z-score transformation,Yes,19.69
+Systolic Blood Pressure,ukb-e-4080_CSA,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,641",mmHg,1,1,mmHg,???,???,Inverse normalization,No,NA
+Systolic Blood Pressure,ukb-e-4080_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,551",mmHg,1,1,mmHg,???,???,Inverse normalization,No,NA
+Systolic Blood Pressure,GCST90278642,EAS,Taiwan,Taiwan Biobank,EAS,92615,mmHg,119.3,17.89,mmHg,119.3,17.89,Inverse normalization,Yes,17.89
+Eosinophil count,ebi-a-GCST90002301,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,142",10^9 cells/L,0.23,0.17,10^9 cells/L,0.23,0.17,Inverse normalization,Yes,0.17
+Eosinophil count,ebi-a-GCST90002381,EUR,UK,UK Biobank,EUR,408112,10^9 cells/L,0.174489,0.138191,10^9 cells/L,0.174489,0.138191,Inverse normalization,Yes,0.138191
+Eosinophil count,ukb-e-30150_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,262",10^9 cells/L,0.16,0.14,10^9 cells/L,0.16,0.14,Inverse normalization,Yes,0.14
+Eosinophil count,ebi-a-GCST90018733,EAS,Japan,Biobank Japan,EAS,93063,10^6 cells/L,173.1,139,10^9 cells/L,0.1731,0.139,"Not clear, likely inverse normalized",Yes,0.139
+HDL cholesterol,ieu-b-109,EUR,UK,UK Biobank,EUR,403943,mmol/L,1.45,0.38,mmol/L,1.45,0.38,Inverse normalization,Yes,0.38
+HDL cholesterol,ebi-a-GCST90101746,AFR,Sub-Saharan African,Sub-Saharan African meta-analysis,AFR,24616,mmol/L,1.18,0.37,mmol/L,1.18,0.37,Meta-analysis,No,NA
+HDL cholesterol,ebi-a-GCST90018736,EAS,Japan,Biobank Japan,EAS,74970,mg/dL,54.8,15.6,mmol/L,1.417119214,0.403413499,"Unclear, likely Z-score",Yes,0.403413499
+HDL cholesterol,ebi-a-GCST90018956,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,390103,mmol/L,1.5,0.4,mmol/L,1.5,0.4,Meta-analysis,No,NA
+HDL cholesterol,ebi-a-GCST008035,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"33,063",mg/dL,49.779,13.908,mmol/L,1.287276959,0.35965865,"Adjusted, but untransformed",Yes,0.02585984
+HDL cholesterol,GCST90278635,EAS,Taiwan,Taiwan Biobank,EAS,92615,mg/dL,54.31,13.35,mmol/L,1.404447892,0.34522886,Inverse normalization,Yes,0.34522886
+Lymphocyte count,ukb-d-30120_irnt,EUR,UK,UK Biobank,EUR,349856,10^9 cells/L,1.96305,1.19113,10^9 cells/L,1.96305,1.19113,Inverse normalization,Yes,1.19113
+Lymphocyte count,ebi-a-GCST90002319,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,163",10^9 cells/L,2.29,0.7,10^9 cells/L,2.29,0.7,Inverse normalization,Yes,0.7
+Lymphocyte count,bbj-a-36,EAS,Japan,Biobank Japan,EAS,"62,076",/μL,1791.08,702.76,10^9 cells/L,1.79108,0.70276,Inverse normalization,Yes,0.70276
+Lymphocyte count,ebi-a-GCST90002318,AMR,Hispanic,Hispanic meta-analysis,AMR,"7,541",10^9 cells/L,2.01,0.95,10^9 cells/L,2.01,0.95,Meta-analysis,No,NA
+Lymphocyte count,ukb-e-30120_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,262",10^9 cells/L,2.12,0.67,10^9 cells/L,2.12,0.67,Inverse normalization,Yes,0.67
+Lymphocyte count,ebi-a-GCST90018962,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,445573,10^9 cells/L,1.9,1.1,10^9 cells/L,1.9,1.1,Meta-analysis,No,NA
+Height,ukb-b-10787,EUR,UK,UK Biobank,EUR,461950,cm,168.516,9.27914,cm,168.516,9.27914,Inverse normalization,Yes,9.27914
+Height,ebi-a-GCST90018959,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,525444,cm,168.8,9.2,cm,168.8,9.2,Meta-analysis,No,NA
+Height,bbj-a-70,EAS,Japan,Biobank Japan,EAS,"159,095",cm,159.7,6.5,cm,159.7,6.5,Z-score transformation,Yes,6.5
+Height,GCST90278637,EAS,Taiwan,Taiwan Biobank,EAS,92615,cm,161.8,8.28,cm,161.8,8.28,Inverse normalization,Yes,8.28
+Height,ebi-a-GCST008053,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"49,796",cm,161.436,9.183,cm,161.436,9.183,Inverse normalization,Yes,9.183
+Height,GCST90013466,AFR,"African American or Afro-Caribbean, African unspecified (Nigeria, U.S.)",African meta-analysis (Nigeria + US),AFR,41389,cm,168.34,8.41,cm,168.34,8.41,Meta-analysis,No,NA
+Height,finngen_R10_HEIGHT_IRN,EUR,Finn,FinnGen (Release 10),EUR,292707,cm,173.95,5.7,cm,173.95,5.7,Inverse normalization,Yes,5.7
+Vitamin D,ebi-a-GCST90000618,EUR,UK,UK Biobank,EUR,496946,nmol/L,49.6,21,nmol/L,49.6,21,Inverse normalization,Yes,21
+Vitamin D,ukb-e-30890_CSA,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"7,380",nmol/L,1,1,nmol/L,???,???,Inverse normalization,No,NA
+Vitamin D,ukb-e-30890_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,046",nmol/L,1,1,nmol/L,???,???,Inverse normalization,No,NA
+Weight,ukb-b-11842,EUR,UK,UK Biobank,EUR,461632,kg,77.7431,15.8693,kg,77.7431,15.8693,Inverse normalization,Yes,15.8693
+Weight,ebi-a-GCST90018949,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,525535,kg,NA,NA,kg,NA,NA,Meta-analysis,No,NA
+Weight,ebi-a-GCST90018729,EAS,Japan,Biobank Japan,EAS,"165,419",kg,59.6,11.5,kg,59.6,11.5,"Not clear, likely either inverse normalized or Z-scored",Yes,11.5
+Weight,GCST90278650,EAS,Taiwan,Taiwan Biobank,EAS,92615,kg,63.68,12.6,kg,63.68,12.6,Inverse normalization,Yes,12.6
+Weight,GCST90296613,AMR,Hispanic (Mexican Biobank),Mexican Biobank,AMR,"5,681",kg,70,11.52,kg,70,11.52,Inverse normalization,Yes,11.52
+Weight,finngen_R10_WEIGHT_IRN,EUR,Finn,FinnGen (Release 10),EUR,297440,kg,72.348,1,kg,72.348,???,Inverse normalization,No,NA
+C-reactive protein,ebi-a-GCST90018950,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,436491,kg,NA,NA,kg,NA,NA,Meta-analysis,No,NA
+C-reactive protein,GCST009777,EUR,UK,UK Biobank,EUR,418642,mg/L,2.58926,4.3509,mg/L,2.58926,4.3509,Inverse normalization,Yes,4.3509
+C-reactive protein,ebi-a-GCST90018730,EAS,Japan,Biobank Japan,EAS,"83,025",mg/dL,0.3,0.3,mg/L,3,3,"Not clear, likely inverse normalized",Yes,3
+C-reactive protein,ebi-a-GCST008055,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"28,520",mg/L,4.114,4.836,mg/L,4.114,4.836,Natural log-transformed,No,NA
+Bone mineral density,ebi-a-GCST006979,EUR,UK,UK Biobank,EUR,426824,g/cm2,0.53,0.11,Z-score,0,1,"Unclear, likely standardized in some way",Yes,1
+Bone mineral density,GCST006433,EUR,UK,UK Biobank,EUR,394929,T-score,0.543533,0.138921,Z-score,0,1,T-score,Yes,1
+Bone mineral density,GCST90278621,EAS,Taiwan,Taiwan Biobank,EAS,92615,Z-score,0.89,1.49,Z-score,0.89,1.49,Inverse normalization,Yes,1.49
+Urea,ebi-a-GCST90018948,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,492819,mg/dL,NA,NA,mmol/L,NA,NA,Meta-analysis,No,NA
+Urea,ebi-a-GCST90013998,EUR,UK,UK Biobank,EUR,389608,mmol/L,5.41116,1.40119,mmol/L,5.41116,1.40119,Inverse normalization,Yes,1.40119
+Urea,GCST90278623,EAS,Taiwan,Taiwan Biobank,EAS,92615,mg/dL,13.07,3.55,mmol/L,4.66599,1.26735,Inverse normalization,Yes,1.26735
+Urea,ebi-a-GCST90018728,EAS,Japan,Biobank Japan,EAS,"148,767",mg/dL,15.5,4.9,mmol/L,5.5335,1.7493,"Log-transformed, then Z-scored",Yes,1.7493
+Urea,ukb-e-30670_CSA,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,422",mmol/L,1,1,mmol/L,???,???,Inverse normalization,No,NA
+Urea,ukb-e-30670_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,213",mmol/L,1,1,mmol/L,???,???,Inverse normalization,No,NA
+Basophil counts,ebi-a-GCST90002379,EUR,UK,UK Biobank,EUR,408112,10^9 cells/L,0.0335663,0.0514161,10^9 cells/L,0.0335663,0.0514161,Inverse normalization,Yes,0.0514161
+Basophil counts,ebi-a-GCST90002295,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,149",10^9 cells/L,0.037,0.036,10^9 cells/L,0.037,0.036,Inverse normalization,Yes,0.036
+Basophil counts,bbj-a-12,EAS,Japan,Biobank Japan,EAS,"62,076",/μL,36.31,33.68,10^9 cells/L,0.03631,0.03368,Inverse normalization,Yes,0.03368
+Basophil counts,ebi-a-GCST90002294,AMR,Hispanic,Hispanic meta-analysis,AMR,"2,969",10^9 cells/L,NA,NA,10^9 cells/L,NA,NA,Meta-analysis,No,NA
+Basophil counts,ukb-e-30160_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,262",10^9 cells/L,0.033,0.04,10^9 cells/L,0.033,0.04,Inverse normalization,Yes,0.04
+Basophil counts,ebi-a-GCST90018946,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,441764,10^9 cells/L,NA,NA,10^9 cells/L,NA,NA,Meta-analysis,No,NA
+Hip circumference,ukb-b-15590,EUR,UK,UK Biobank,EUR,462117,cm,102.996,9.26939,cm,102.996,9.26939,Inverse normalization,Yes,9.26939
+Hip circumference,ukb-e-49_CSA,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,782",cm,1,1,cm,???,???,Inverse normalization,No,NA
+Hip circumference,GCST90278633,EAS,Taiwan,Taiwan Biobank,EAS,92615,cm,95.99,7,cm,95.99,7,Inverse normalization,Yes,7
+Mean corpuscular hemoglobin,ebi-a-GCST90002390,EUR,UK,UK Biobank,EUR,408112,pg,31.4507,1.92023,pg,31.4507,1.92023,Inverse normalization,Yes,1.92023
+Mean corpuscular hemoglobin,ebi-a-GCST90018744,EAS,Japan,Biobank Japan,EAS,"128,028",pg,31,2,pg,31,2,"Unclear, likely Z-score",Yes,2
+Mean corpuscular hemoglobin,ebi-a-GCST90002325,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,181",pg,29.67,2.47,pg,29.67,2.47,Inverse normalization,Yes,2.47
+Mean corpuscular hemoglobin concentration,ebi-a-GCST90002391,EUR,UK,UK Biobank,EUR,408112,g/dL,34.5191,1.08848,g/dL,34.5191,1.08848,Inverse normalization,Yes,1.08848
+Mean corpuscular hemoglobin concentration,ebi-a-GCST90018745,EAS,Japan,Biobank Japan,EAS,"135,482",%,33.4,1.1,g/dL,33.4,1.1,"Unclear, likely Z-score",Yes,1.1
+Mean corpuscular hemoglobin concentration,ebi-a-GCST90002331,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,185",g/dL,34.16,1.03,g/dL,34.16,1.03,Inverse normalization,Yes,1.03
+Mean corpuscular hemoglobin concentration,ebi-a-GCST008038,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"19,803",g/dL,32.909,1.249,g/dL,32.909,1.249,"Adjusted, but untransformed",Yes,1
+Monocyte count,ukb-d-30130_irnt,EUR,UK,UK Biobank,EUR,349856,10^9 cells/L,0.473849,0.271642,10^9 cells/L,0.473849,0.271642,Inverse normalization,Yes,0.271642
+Monocyte count,ebi-a-GCST90002343,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"7,043",10^9 cells/L,0.47,0.17,10^9 cells/L,0.47,0.17,Inverse normalization,Yes,0.17
+Monocyte count,bbj-a-41,EAS,Japan,Biobank Japan,EAS,"62,076",/μL,376.19,170.94,10^9 cells/L,0.37619,0.17094,Inverse normalization,Yes,0.17094
+Monocyte count,ebi-a-GCST90002342,AMR,Hispanic,Hispanic meta-analysis,AMR,"7,543",10^9 cells/L,NA,NA,10^9 cells/L,NA,NA,Meta-analysis,No,NA
+Monocyte count,ukb-e-30130_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,262",10^9 cells/L,0.39,0.16,10^9 cells/L,0.39,0.16,Inverse normalization,Yes,0.16
+Monocyte count,ebi-a-GCST90018967,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,444975,10^9 cells/L,NA,NA,10^9 cells/L,NA,NA,Meta-analysis,No,NA
+Neutrophil count,ukb-d-30140_irnt,EUR,UK,UK Biobank,EUR,349856,10^9 cells/L,4.2296,1.42078,10^9 cells/L,4.2296,1.42078,Inverse normalization,Yes,1.42078
+Neutrophil count,ebi-a-GCST90002354,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,165",10^9 cells/L,4.29,1.32,10^9 cells/L,4.29,1.32,Inverse normalization,Yes,1.32
+Neutrophil count,bbj-a-44,EAS,Japan,Biobank Japan,EAS,"62,076",/μL,3673.61,1501.73,10^9 cells/L,3.67361,1.50173,Inverse normalization,Yes,1.50173
+Neutrophil count,ebi-a-GCST90002353,AMR,Hispanic,Hispanic meta-analysis,AMR,"7,542",10^9 cells/L,NA,NA,10^9 cells/L,NA,NA,Meta-analysis,No,NA
+Neutrophil count,ukb-e-30140_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,262",10^9 cells/L,3.1,1.27,10^9 cells/L,3.1,1.27,Inverse normalization,Yes,1.27
+Neutrophil count,ebi-a-GCST90018968,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,432666,10^9 cells/L,NA,NA,10^9 cells/L,NA,NA,Meta-analysis,No,NA
+Platelet count,ukb-d-30080_irnt,EUR,UK,UK Biobank,EUR,350474,10^9 cells/L,252.027,60.0622,10^9 cells/L,252.027,60.0622,Inverse normalization,Yes,60.0622
+Platelet count,ebi-a-GCST90002360,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,188",10^9 cells/L,256.22,62.54,10^9 cells/L,256.22,62.54,Inverse normalization,Yes,62.54
+Platelet count,bbj-a-49,EAS,Japan,Biobank Japan,EAS,"108,208",10^4/μL,22.63,6.78,10^9 cells/L,226.3,67.8,Z-score,Yes,67.8
+Platelet count,ebi-a-GCST008039,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"29,328",10^9 cells/L,246.783,64.273,10^9 cells/L,246.783,64.273,Untransformed,Yes,1
+Platelet count,ukb-e-30080_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,281",10^9 cells/L,235.16,60.63,10^9 cells/L,235.16,60.63,Inverse normalization,Yes,60.63
+Platelet count,ebi-a-GCST90018969,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,499097,10^9 cells/L,NA,NA,10^9 cells/L,NA,NA,Meta-analysis,No,NA
+RBC count,ukb-d-30010_irnt,EUR,UK,UK Biobank,EUR,350475,10^12 cells/L,4.51879,0.416472,10^12 cells/L,4.51879,0.416472,Inverse normalization,Yes,0.416472
+RBC count,ebi-a-GCST90002366,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,189",10^12 cells/L,4.72,0.5,10^12 cells/L,4.72,0.5,Inverse normalization,Yes,0.5
+RBC count,bbj-a-50,EAS,Japan,Biobank Japan,EAS,"108,794",10^4/μL,434.93,55.21,10^12 cells/L,4.3493,0.5521,Z-score,Yes,0.5521
+RBC count,ebi-a-GCST90002365,AMR,Hispanic,Hispanic meta-analysis,AMR,"9,302",10^12 cells/L,NA,NA,10^12 cells/L,NA,NA,Meta-analysis,No,NA
+RBC count,ukb-e-30010_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,281",10^12 cells/L,4.61,0.52,10^12 cells/L,4.61,0.52,Inverse normalization,Yes,0.52
+RBC count,ebi-a-GCST90018971,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,503987,10^12 cells/L,NA,NA,10^12 cells/L,NA,NA,Meta-analysis,No,NA
+Triglycerides,ieu-b-111,EUR,UK,UK Biobank,EUR,441016,mmol/L,1.32103,0.588784,mmol/L,1.32103,0.588784,Inverse normalization,Yes,0.588784
+Triglycerides,ebi-a-GCST90018755,EAS,Japan,Biobank Japan,EAS,"111,667",mg/dL,133,71.9,mmol/L,1.501637123,0.811787287,"Unclear, likely common log transformation + Z-score",Yes,0.811787287
+Triglycerides,ebi-a-GCST008046,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"33,096",mg/dL,137.83,92.125,mmol/L,1.556170261,1.040137744,Natural log-transformed,No,NA
+Triglycerides,ebi-a-GCST90018975,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,455659,Multiple units,NA,NA,mmol/L,NA,NA,Meta-analysis,No,NA
+Triglycerides,ebi-a-GCST90101748,AFR,Sub-Saharan African,Sub-Saharan African meta-analysis,AFR,24600,mmol/L,0.89,0.46,mmol/L,0.89,0.46,Meta-analysis,No,NA
+Urate,ebi-a-GCST90014015,EUR,UK,UK Biobank,EUR,389404,umol/L,309.406,80.3959,mg/dL,5.201849361,1.351645931,Inverse normalization,Yes,1.351645931
+Urate,ieu-a-1055,EUR,Global Urate Genetics Consortium (GUGC),Global Urate Genetics Consortium (GUGC) (EUR),EUR,110347,mg/dl,???,1.33,mg/dL,???,1.33,"No information given about transformation, possibly untransformed",Yes,1
+Urate,bbj-a-57,EAS,Japan,Biobank Japan,EAS,"109,029",mg/dL,5.32,1.45,mg/dL,5.32,1.45,Z-score,Yes,1.45
+Urate,GCST90278646,EAS,Taiwan,Taiwan Biobank,EAS,92615,mg/dL,5.46,1.43,mg/dL,5.46,1.43,Inverse normalization,Yes,1.43
+Urate,ukb-e-30880_CSA,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,411",umol/L,1,1,mg/dL,???,???,Inverse normalization,No,NA
+Urate,ukb-e-30880_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,206",umol/L,1,1,mg/dL,???,???,Inverse normalization,No,NA
+Waist-hip ratio,ieu-a-79,EUR,GIANT,GIANT (EUR),EUR,210082,No units,1,0.076079409,No units,1,0.076079409,Inverse normalization,Yes,0.076079409
+Waist-hip ratio,GCST90278649,EAS,Taiwan,Taiwan Biobank,EAS,92615,No units,0.87,0.07,No units,0.87,0.07,Inverse normalization,Yes,0.07
+Waist-hip ratio,ebi-a-GCST008052,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,33904,No units,0.88,0.078,No units,0.88,0.078,Inverse normalization,Yes,0.078
+Waist circumference,ukb-b-9405,EUR,UK,UK Biobank,EUR,462166,cm,90.2216,13.3995,cm,90.2216,13.3995,Inverse normalization,Yes,13.3995
+Waist circumference,GCST90278648,EAS,Taiwan,Taiwan Biobank,EAS,92615,cm,83.31,10.19,cm,83.31,10.19,Inverse normalization,Yes,10.19
+Waist circumference,ebi-a-GCST90103753,EAS,Taiwan,Taiwan Biobank,EAS,"21,949",cm,83.31,10.19,cm,83.31,10.19,Inverse normalization,Yes,10.19
+WBC count,ebi-a-GCST90002407,EUR,UK,UK Biobank,EUR,408112,10^9 cells/L,6.88115,2.13188,10^9 cells/L,6.88115,2.13188,Inverse normalization,Yes,2.13188
+WBC count,ebi-a-GCST90002377,SAS,SAS (UK),SAS (Pan-UK Biobank),SAS,"8,188",10^9 cells/L,7.33,1.74,10^9 cells/L,7.33,1.74,Inverse normalization,Yes,1.74
+WBC count,bbj-a-58,EAS,Japan,Biobank Japan,EAS,"107,964",/μL,6126.44,1856.41,10^9 cells/L,6.12644,1.85641,Z-score,Yes,1.85641
+WBC count,ebi-a-GCST008049,Mixed (AMR/AFR/EAS),Hispanic/African-American/Asian/Native Hawaiian/Native American,Majority Hispanic mega-analysis (Wojcik),AMR,"28,608",10^9 cells/L,6.253,1.943,10^9 cells/L,6.253,1.943,Natural log-transformed,No,NA
+WBC count,ukb-e-30000_AFR,AFR,AFR (UK),AFR (Pan-UK Biobank),AFR,"6,281",10^9 cells/L,5.81,1.66,10^9 cells/L,5.81,1.66,Inverse normalization,Yes,1.66
+WBC count,ebi-a-GCST90018978,Mixed (EUR/EAS),UK/Japan,UKBB + BBJ meta-analysis,EUR,504825,Multiple units,NA,NA,10^9 cells/L,NA,NA,Meta-analysis,No,NA

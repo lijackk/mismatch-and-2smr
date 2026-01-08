@@ -1,0 +1,2 @@
+name,raw_data_path,pub_sample_size,effect_is_or,snp,A1,A2,beta_hat,se,pos,p_value,sample_size,chrom,af,pop
+ieu-b-110,../exposures/LDLC/ieu-b-110.vcf.gz,440546,FALSE,,,,,,,,,,,EUR

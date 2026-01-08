@@ -1,0 +1,90 @@
+Outcome Study ID,Outcome Trait,Population,Estimated Prevalence,Source/Method,Primary source links,Secondary source links,Fine as is?
+GCST90018576,Atrial fibrillation,Biobank Japan,0.02598785146,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018576,,TRUE
+ebi-a-GCST006414,Atrial fibrillation,European (US/Iceland/Norway/UK),0.03745434332,Estimated using cases/(cases + controls) in UK Biobank alone in Pheweb,https://pheweb.org/UKB-TOPMed/pheno/427.2,,FALSE
+finngen_R10_I9_AF,Atrial fibrillation,FinnGen,0.041,"Taken from Lehto et al 2022, Eur J Epidemiol.",https://pmc.ncbi.nlm.nih.gov/articles/PMC8791884/,,FALSE
+ukb-b-6217,Atrial fibrillation,UK Biobank,0.02598785146,Estimated using cases/(cases + controls) in UK Biobank alone in Pheweb,https://pheweb.org/UKB-TOPMed/pheno/427.2,,FALSE
+ukb-e-I48_CSA,Atrial fibrillation,South Asians in UK Biobank,0.02332131591,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-e-I48_CSA/,,TRUE
+ebi-a-GCST90027158,Alzheimer's disease,Large European meta-analysis,0.013040904,"~9.7 million cases (Dementia in Europe Yearbook 2019), with a total population of Europe of ~750 million (UN World Population Prospects)",https://pubmed.ncbi.nlm.nih.gov/27130306/,https://population.un.org/wpp/graphs?loc=908&type=Demographic%20Profiles&category=Line%20Charts,FALSE
+finngen_R10_G6_ALZHEIMER,Alzheimer's disease,FinnGen,0.02689729867,Estimated with Risteys,https://risteys.finngen.fi/endpoints/G6_ALZHEIMER,,FALSE
+ebi-a-GCST90038678,Anemia,UK Biobank,0.01097135847,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90038678,,TRUE
+ebi-a-GCST90018652,Anemia,Biobank Japan,0.02584580943,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018652,,TRUE
+ebi-a-GCST90018872,Anemia,UK Biobank + FinnGen + Biobank Japan,0.02567402853,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018872,,TRUE
+finngen_R10_D3_ANAEMIA_IRONDEF,Anemia,Finnish,0.03850944811,Estimated with Risteys,https://risteys.finngen.fi/endpoints/D3_ANAEMIA_IRONDEF,,FALSE
+ebi-a-GCST90014325,Asthma,White British in UK Biobank,0.1375219748,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90014325,,FALSE
+ebi-a-GCST90018575,Asthma,Biobank Japan,0.07397071862,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018575,,TRUE
+finngen_R10_J10_ASTHMA_EXMORE,Asthma,FinnGen,0.03850944811,Estimated with Risteys,https://risteys.finngen.fi/endpoints/J10_ASTHMA_EXMORE,,FALSE
+ukb-e-495_CSA,Asthma,South Asians in UK Biobank,0.1027420639,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-e-495_CSA/,,FALSE
+ebi-a-GCST90027161,Atopic dermatitis,European (FinnGen/UKBB/Estonia Biobank),0.0282102425,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90027161,,TRUE
+ebi-a-GCST90018784,Atopic dermatitis,UK Biobank + FinnGen + Biobank Japan,0.01619951894,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018784,,TRUE
+GCST90018564,Atopic dermatitis,Biobank Japan,0.02555576046,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018564,,TRUE
+finngen_R10_L12_ATOPIC,Atopic dermatitis,Finnish,0.06239211088,Estimated with Risteys,https://risteys.finngen.fi/endpoints/L12_ATOPIC,,FALSE
+bbj-a-53,Total bilirubin,Biobank Japan,NA,Continuous trait,,,FALSE
+ukb-d-30840_irnt,Total bilirubin,UK Biobank,NA,Continuous trait,,,FALSE
+ukb-e-30840_AFR,Total bilirubin,Africans in UK Biobank,NA,Continuous trait,,,FALSE
+ukb-e-30840_CSA,Total bilirubin,South Asians in UK Biobank,NA,Continuous trait,,,FALSE
+bbj-a-160,Breast cancer,Females in Biobank Japan,0.05826852639,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/bbj-a-160/,,TRUE
+ebi-a-GCST004988,Breast cancer,Females in European meta-analysis (BCAC + DRIVE),0.129,Estimated using prevalence in the US ,https://www.cancer.gov/types/breast/risk-fact-sheet,,FALSE
+finngen_R10_C3_BREAST_EXALLC,Breast cancer,Females in FinnGen,0.08514075937,Estimated with Risteys,https://risteys.finngen.fi/endpoints/C3_BREAST_EXALLC,,FALSE
+ukb-b-16890,Breast cancer,Males and females in UK Biobank,0.0222559204,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-16890/,,TRUE
+bbj-a-159,Coronary artery disease,Biobank Japan,0.1380022876,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/bbj-a-159/,,FALSE
+ebi-a-GCST005194,Coronary artery disease,"UK Biobank, extended definition",0.1164859624,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST005194,,FALSE
+finngen_R10_I9_CHD,Coronary artery disease,FinnGen,0.1119990004,Estimated with Risteys,https://risteys.finngen.fi/endpoints/I9_CHD,,FALSE
+ieu-a-7,Coronary artery disease,"CARDIoGRAMplusC4D (Mostly European, some South Asian + East Asian)",0.05176799314,Estimated in UK Biobank (PheWeb),https://pheweb.org/UKB-TOPMed/pheno/411.4,,FALSE
+ukb-b-1668,Coronary artery disease,"UK Biobank, strict definition",0.02628668927,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-1668/,,TRUE
+ebi-a-GCST90018587,COPD,Biobank Japan,0.02410151797,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018587,,TRUE
+ebi-a-GCST90018807,COPD,UK Biobank + FinnGen + Biobank Japan,0.02762676239,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018807,,TRUE
+finngen_R10_J10_COPD,COPD,FinnGen,0.04771919033,Estimated with Risteys,https://risteys.finngen.fi/endpoints/I9_CHD,,FALSE
+GCST90399691,COPD,GBMI (Africans),0.0666397143,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90399691,,TRUE
+GCST90399692,COPD,GBMI (Hispanic or Latin American),0.09962879491,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90399692,,TRUE
+ukb-b-16751,COPD,"UK Biobank, strict definition",0.008360510572,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-16751/,,TRUE
+ebi-a-GCST004132,Crohn's disease,British meta-analysis (not UKBB),0.0081,Estimated by a University of Nottingham study,https://crohnsandcolitis.org.uk/news-stories/news-items/new-research-shows-over-1-in-123-people-in-uk-living-with-crohn-s-or-colitis,,FALSE
+finngen_R10_CHRONNAS,Crohn's disease,FinnGen,0.00517291094,Estimated with Risteys,https://risteys.finngen.fi/endpoints/CHRONNAS,,FALSE
+ieu-a-12,Crohn's disease,European meta-analysis (IIBDGC),0.003,Upper estimate of Crohn's frequency in western EU + North America,https://medlineplus.gov/genetics/condition/crohns-disease/#frequency,,FALSE
+finngen_R10_M13_GOUT,Gout,FinnGen,0.02445743065,Estimated with Risteys,https://risteys.finngen.fi/endpoints/M13_GOUT,,FALSE
+GCST90399698,Gout,GBMI (Africans),0.03725790879,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90399698,,TRUE
+GCST90399699,Gout,GBMI (Hispanic or Latin American),0.03062795557,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90399699,,TRUE
+GCST90399700,Gout,GBMI (East Asian),0.02984036478,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90399700,,TRUE
+GCST90399701,Gout,GBMI (Europeans),0.02308556149,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90399701,,TRUE
+ukb-b-13251,Gout,"UK Biobank, self-reported",0.01413379474,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-13251/,,TRUE
+ebi-a-GCST90104005,Hyperlipidemia,UK Biobank,0.05006843784,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90104005,,TRUE
+ebi-a-GCST90090994,Hyperlipidemia,Taiwan Biobank,0.097,Estimated in a 2012 survey of the adult population of Taiwan,https://www.sciencedirect.com/science/article/pii/S0929664616304302?via%3Dihub#sec2,,FALSE
+finngen_R10_E4_HYPERLIPNAS,Hyperlipidemia,FinnGen,0.03495126968,Estimated with Risteys,https://risteys.finngen.fi/endpoints/E4_HYPERLIPNAS,,FALSE
+ebi-a-GCST008036,Hypertension,"Wojcik meta-analysis (Mixed, majority Hispanic mega-analysis)",0.33,"32% in women, 34% in men according to a 2019 study",https://pmc.ncbi.nlm.nih.gov/articles/PMC8446938/#fig2,,FALSE
+finngen_R10_I9_HYPTENS,Hypertension,FinnGen,0.3054651006,Estimated with Risteys,https://risteys.finngen.fi/endpoints/I9_HYPTENS,,FALSE
+GCST90301363,Hypertension,Sub-Saharan meta-analysis (AWI-GEN),0.3544374304,Direct application of cases/(cases + controls),https://pmc.ncbi.nlm.nih.gov/articles/PMC10725455/,https://www.ebi.ac.uk/gwas/studies/GCST90301363,FALSE
+ukb-b-14057,Hypertension,"UK Biobank, self-reported",0.2586356989,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-14057/,,FALSE
+ukb-e-401_CSA,Hypertension,South Asians in UK Biobank,0.3036117381,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-e-401_CSA/,,FALSE
+ebi-a-GCST90018657,Myocardial infarction,Biobank Japan,0.09299901989,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018657,,TRUE
+ebi-a-GCST90018877,Myocardial infarction,UK Biobank + FinnGen + Biobank Japan,0.0576361614,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018877,,TRUE
+finngen_R10_I9_MI_STRICT,Myocardial infarction,"FinnGen, strict definition",0.06275158109,Estimated with Risteys,https://risteys.finngen.fi/endpoints/I9_MI_STRICT,,FALSE
+ieu-a-798,Myocardial infarction,"CARDIoGRAMplusC4D (Mostly European, some South Asian + East Asian)",0.03113047751,Estimated using UK Biobank (PheWeb),https://pheweb.org/UKB-TOPMed/pheno/411.2,,FALSE
+ukb-b-15829,Myocardial infarction,"UK Biobank, self-reported",0.02293204416,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-15829/,,TRUE
+finngen_R10_G6_MS,Multiple sclerosis,FinnGen,0.00589954057,Estimated with Risteys,https://risteys.finngen.fi/endpoints/G6_MS,,FALSE
+ieu-b-18,Multiple sclerosis,European meta-analysis (IMSGC),0.00083,An estimated prevalence in Western Europe,https://pubmed.ncbi.nlm.nih.gov/16834700/,,FALSE
+ukb-b-17670,Multiple sclerosis,"UK Biobank, self-reported",0.003626874731,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-17670/,,TRUE
+ebi-a-GCST90091033,NAFLD,European (FinnGen/UKBB/Estonia Biobank),0.01083206826,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90091033,,TRUE
+finngen_R10_NAFLD,NAFLD,FinnGen,0.007014474924,Estimated with Risteys,https://risteys.finngen.fi/endpoints/NAFLD,,FALSE
+GCST90271622,NAFLD,Mixed-population meta-analysis (mostly European),0.01083206826,Using the same prevalence estimate as ebi-a-GCST90091033,https://www.ebi.ac.uk/gwas/studies/GCST90091033,,FALSE
+bbj-a-137,Osteoporosis,Biobank Japan,0.03665751955,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/bbj-a-137/,,TRUE
+finngen_R10_M13_OSTEOPOROSIS,Osteoporosis,FinnGen,0.02067242075,Estimated with Risteys,https://risteys.finngen.fi/endpoints/M13_OSTEOPOROSIS,,FALSE
+ukb-b-12141,Osteoporosis,"UK Biobank, self-reported",0.0163025751,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-12141/,,TRUE
+GCST90018690,Rheumatoid arthritis,Biobank Japan,0.02994132664,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018690,,TRUE
+finngen_R10_M13_RHEUMA,Rheumatoid arthritis,FinnGen,0.0321812345,Estimated with Risteys,https://risteys.finngen.fi/endpoints/M13_RHEUMA,,FALSE
+ieu-a-832,Rheumatoid arthritis,European meta-analysis (Okada et al 2014),0.004,Estimated at 0.4% from 2017 GBD data,https://www.nature.com/articles/s41584-022-00827-y,,FALSE
+ieu-a-833,Rheumatoid arthritis,EUR + EAS meta-analysis (Okada et al 2014),0.0035175,"Weighted average of European (0.4%) and East Asian (0.19%) prevalences from GBD data; weights were 58/80 for Europe, 26/80 for East Asia",https://www.nature.com/articles/s41584-022-00827-y,,FALSE
+ukb-b-9125,Rheumatoid arthritis,"UK Biobank, self-reported",0.01123488712,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-9125/,,TRUE
+finngen_R10_F5_SCHZPHR,Schizophrenia,FinnGen,0.01441917687,Estimated with Risteys,https://risteys.finngen.fi/endpoints/F5_SCHZPHR,,FALSE
+ieu-b-42,Schizophrenia,European meta-analysis (Schizophrenia Working Group of the PGC),0.0031,"Median 12-month prevalence in Europe, estimated using a meta-analysis of various studies",https://www.researchgate.net/publication/281058394_An_evaluation_of_variation_in_published_estimates_of_schizophrenia_prevalence_from_1990-2013_A_systematic_literature_review#pf7,,FALSE
+ieu-b-5070,Schizophrenia,East Asian meta-analysis,0.0037,"Median 12-month prevalence in Asia, estimated in a meta-analysis of various studies",https://www.researchgate.net/publication/281058394_An_evaluation_of_variation_in_published_estimates_of_schizophrenia_prevalence_from_1990-2013_A_systematic_literature_review#pf7,,FALSE
+ieu-b-5102,Schizophrenia,European meta-analysis (Trubetskoy),0.0031,Estimate the same as ieu-b-42,https://www.researchgate.net/publication/281058394_An_evaluation_of_variation_in_published_estimates_of_schizophrenia_prevalence_from_1990-2013_A_systematic_literature_review#pf7,,FALSE
+ebi-a-GCST006906,Stroke,MEGASTROKE,0.03,A United States estimate from a 2011 AHA report,https://pmc.ncbi.nlm.nih.gov/articles/PMC3250269/,,FALSE
+GCST90018644,Stroke,Biobank Japan,0.1297413645,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90018644,,FALSE
+finngen_R10_C_STROKE,Stroke,FinnGen,0.1057380673,Estimated with Risteys,https://risteys.finngen.fi/endpoints/C_STROKE,,FALSE
+GCST90399729,Stroke,GBMI (Africans),0.04539234468,Direct application of cases/(cases + controls),https://www.ebi.ac.uk/gwas/studies/GCST90399729,,TRUE
+ukb-b-6358,Stroke,"UK Biobank, self-reported",0.01321141504,Direct application of cases/(cases + controls),https://gwas.mrcieu.ac.uk/datasets/ukb-b-6358/,,TRUE
+ukb-b-13806,Type 2 diabetes,"UK Biobank, self-reported",0.08663,Cited from a 2017 study described in Khan et al 2020 (United Kingdom),https://pmc.ncbi.nlm.nih.gov/articles/PMC7310804/,,FALSE
+GCST90018706,Type 2 diabetes,Biobank Japan,0.06737,Cited from a 2017 study described in Khan et al 2020 (Japan),https://pmc.ncbi.nlm.nih.gov/articles/PMC7310804/,,FALSE
+GCST90093109,Type 2 diabetes,South Asian meta-analysis (Loh),0.0477,Cited from a 2017 study described in Khan et al 2020 (India),https://pmc.ncbi.nlm.nih.gov/articles/PMC7310804/,,FALSE
+ebi-a-GCST006867,Type 2 diabetes,"European + South Asian meta-analysis, mostly European",0.08529,Cited from a 2017 study described in Khan et al 2020 (Europe),https://pmc.ncbi.nlm.nih.gov/articles/PMC7310804/,,FALSE
+finngen_R10_T2D,Type 2 diabetes,FinnGen,0.061,"OECD estimate for Finland, 2021, for ages 20-79",https://data.worldbank.org/indicator/SH.STA.DIAB.ZS?locations=OE-FI,,FALSE
+ebi-a-GCST008048,Type 2 diabetes,"Wojcik meta-analysis (Mixed, majority Hispanic mega-analysis)",0.06059,Global estimate for T2D prevalence in Khan et al 2020,https://pmc.ncbi.nlm.nih.gov/articles/PMC7310804/,,FALSE

@@ -1,0 +1,31 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --bfile /net/snowwhite/home/lijack/06_24_2024_Summer_Projects/01.additional_metsim_work/01.novel_assoc_NEW/1000G_B38/EUR_B38
+  --extract /net/snowwhite/home/lijack/6_10_2024_MR_survey/reproducible_code/snakemake_pipeline/special_afs/snp_lists/ebi-a-GCST004132.txt
+  --freq
+  --out /net/snowwhite/home/lijack/6_10_2024_MR_survey/reproducible_code/snakemake_pipeline/special_afs/EUR_B38_freq_ebi-a-GCST004132
+
+Hostname: snowwhite
+Working directory: /net/snowwhite/home/lijack
+Start time: Fri Nov 21 17:22:33 2025
+
+Random number seed: 1763763753
+1159697 MB RAM detected; reserving 579848 MB for main workspace.
+Allocated 244623 MB successfully, after larger attempt(s) failed.
+80512529 variants loaded from .bim file.
+503 people (0 males, 0 females, 503 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to
+/net/snowwhite/home/lijack/6_10_2024_MR_survey/reproducible_code/snakemake_pipeline/special_afs/EUR_B38_freq_ebi-a-GCST004132.nosex
+.
+503 phenotype values loaded from .fam.
+--extract: 58045 variants remaining.
+Warning: Ignoring phenotypes of missing-sex samples.  If you don't want those
+phenotypes to be ignored, use the --allow-no-sex flag.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 503 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+--freq: Allele frequencies (founders only) written to
+/net/snowwhite/home/lijack/6_10_2024_MR_survey/reproducible_code/snakemake_pipeline/special_afs/EUR_B38_freq_ebi-a-GCST004132.frq
+.
+
+End time: Fri Nov 21 17:23:27 2025

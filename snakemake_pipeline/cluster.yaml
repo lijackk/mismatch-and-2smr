@@ -1,0 +1,9 @@
+__default__:
+    mem: "5G"
+    cpus: "1"
+    name: "{rule}-{wildcards}"
+    log: "log/snake-{rule}-{wildcards}"
+    time: "2:00:00"
+
+get_sumstats_chrom:
+    mem: "20G"

@@ -1,0 +1,11 @@
+input:
+  exposure_csv: 'snakemake_csv_files/all_exposures.csv'
+  outcome_csv: 'snakemake_csv_files/current_outcome.csv' 
+  LD_ref_path: '../ld_reference/'
+
+out:
+  sumstat_dir: '../outputs/sumstat/'
+  steiger_dir: '../outputs/sumstat_steiger/'
+  Restimate_dir: '../outputs/Restimate/'
+  mr_dir: '../outputs/MRest/'
+  output_dir: '../outputs/final_table/'
