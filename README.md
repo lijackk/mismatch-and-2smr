@@ -12,7 +12,7 @@ This repository contains the code used to perform the analyses in the paper "Min
 
 # Pre-requisite Software
 
-You will need a conda installation and R. We used R 4.5.2 for this analysis. We have tested this repository in Linux only. If you want to run the whole analysis you will also need a compute cluster. Overall, this empirical analysis will involve downloading ~140GB of GWAS summary statistics, ~10GB of LD reference panel data, and will produce an additional ~2.5 GB of output files.
+You will need a conda installation and R. We used R 4.5.2 for this analysis. We have tested this repository in Linux only. If you want to run the whole analysis you will also need a compute cluster. Overall, this empirical analysis will involve downloading ~140GB of GWAS summary statistics, ~10GB of LD reference panel data, and will produce an additional ~4.2 GB of output files.
 
 To set up a
 

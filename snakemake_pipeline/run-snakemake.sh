@@ -15,9 +15,8 @@ snakemake \
               --partition=main \
               --output={cluster.log}_%j.out \
               --error={cluster.log}_%j.err \
-              --account=lijack \
+              --account={username} \
               --job-name={cluster.name} \
               --time={cluster.time} \
-              --exclude=r6402,r6406,r6407,r6408,r6409,r6410 \
               --cpus-per-task={cluster.cpus} \
               --mem={cluster.mem}"
