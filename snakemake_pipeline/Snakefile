@@ -86,10 +86,4 @@ rule grapple_ivw_bee:
   input: Restimate = Restimate_dir + "{exposure}__{outcome}.Restimate.RDS", steiger_sumstat = steiger_dir + "{exposure}__{outcome}.steiger_sumstats.RDS"
   output: mr_results = mr_dir + "{exposure}__{outcome}.MRestimate_list.RDS"
   script: "R/05_MR.R"
-
-###Step 6: Collecting all of the estimates from Step 3 into a list of dataframes, one for each type of MR estimate
-#rule collect:
-#  input: mr_results = expand(mr_dir + "{exposure}__{outcome}.MRestimate_list.RDS}")
-#  output: out = "output_dir + final_table.RDS"
-#  script: "R/06_compile.R"
   

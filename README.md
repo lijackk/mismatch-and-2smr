@@ -26,8 +26,8 @@ This Zenodo record is divided into two files: `exposure_sumstats.tar.gz` (\~80GB
 
 We used reference panels from 1000 Genomes, divided into five continental superpopulations (AFR, AMR, EAS, EUR, SAS). These reference panels are available for FTP download. To obtain these summary statistics, enter the command ```wget http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz```. Then, create a folder named "ld_reference" in your working directory, and in the directory, unpack the resulting `.tgz` file using the command `tar -xvzf 1kg.v3.tgz -C ld_reference/`.
 
-## Step 2: Performing two-sample MR
+# Step 2: Performing two-sample MR
 
-The snakemake pipeline
+The Snakefile and R scripts in the `snakemake-pipeline/` performs two-sample MR between the 128 exposure studies described in `snakemake_csv_files/all_exposures.csv` and the 88 outcome studies in `snakemake_csv_files/all_outcomes.csv`. Because running all exposures and outcomes together is highly laborious, the default behavior of the snakemake pipeline is to perform two-sample MR between all exposure studies and a single outcome study, specified in `snakemake_csv_files/current_outcome.csv`
 
 # Step 3: Reproducing figures
