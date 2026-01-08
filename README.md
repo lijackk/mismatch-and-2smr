@@ -32,6 +32,8 @@ After setting up the data, cd into the `snakemake_pipeline` directory. The Snake
 
 To run the pipeline, start an R session in the `snakemake_pipeline` directory, and paste the contents of `run_input.R` into the console. You can also use commands such as `Rscript`. Please note that by default, `run_input.R` assumes that this analysis pipeline is being performed on a computing cluster with the **Slurm job scheduler**. During our tests on our own computing cluster, and using the cluster parameters specified by both `run-snakemake.sh` and `cluster.yaml`, it took approximately **5 days** to run the analysis from start to completion, with MR analyses for individual outcomes being completed in approximately **1-2 hours each**. If your cluster uses a different type of job scheduler, you must edit the `run-snakemake.sh` script accordingly. Due to the length of this analysis, it is highly recommended to run this pipeline using either `tmux` or `screen` so that it can run in a separate background window.
 
+The outputs for these analyses will be saved into `outputs`, while logs for specific jobs will be saved into a `snakemake_pipeline/logs` directory. If no troubleshooting is necessary after the pipeline is finished running, it is highly recommended to remove the `logs` folder using `rm -rf`, as log files for individual jobs build up quickly.
+
 # Step 3: Reproducing figures
 
 The `reproduce_figures.R` script in the `snakemake_pipeline` directory contains all code needed to reproduce the figures and tables in both the paper and its supplement. It will output these results into the `reproducible_figures` folder in the `snakemake_pipeline` directory. We also provide expected outputs for these figures and tables in the `expected_figure_outputs` directory.

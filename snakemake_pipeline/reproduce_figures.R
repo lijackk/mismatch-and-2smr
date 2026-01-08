@@ -574,8 +574,6 @@ for (i in 1:length(subpopulations)) {
   }
 }
 
-#saveRDS(master_list, "/net/snowwhite/home/lijack/6_10_2024_MR_survey/2025_12_18/master_list_simex.RDS")
-
 pop_pair <- names(master_list)
 simex.1e5 <- master_list %>% map("simex_mean.1e5") %>% unlist()
 simex_se.1e5 <- master_list %>% map("simex_se.1e5") %>% unlist()
