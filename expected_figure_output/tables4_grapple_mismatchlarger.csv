@@ -1,0 +1,5 @@
+Body Mass Index to Breast Cancer,Biobank Japan,UK Biobank,-0.074 (5.94408114158965e-05),-0.006 (0.441842396803284),3.36338068993792
+HDL cholesterol to Type 2 diabetes,UK Biobank,Biobank Japan,-0.434 (2.0537421064281e-13),0.072 (0.364764192371677),4.17331407924929
+HDL cholesterol to Type 2 diabetes,UK Biobank,Biobank Japan,-0.374 (9.53589268200538e-07),-0.033 (0.675125189964365),3.08090647094206
+Height to Atrial Fibrillation,FinnGen (Release 10),UK Biobank,0.064 (8.24990808991252e-24),0.039 (8.56203602532687e-26),3.35703294721209
+Weight to Breast Cancer,Taiwan Biobank,UK Biobank,-0.023 (0.000908718055671177),-0.001 (0.600874404157645),2.94030025852932

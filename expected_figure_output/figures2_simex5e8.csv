@@ -1,0 +1,8 @@
+"","UK Biobank","FinnGen (Release 10)","Biobank Japan","Taiwan Biobank","Majority Hispanic mega-analysis (Wojcik)","SAS (Pan-UK Biobank)","AFR (Pan-UK Biobank)"
+"UK Biobank",NA,"0.701 (0.033) [40]","0.263 (0.028) [260]","0.148 (0.084) [9]","0.409 (0.111) [12]","0.038 (0.024) [36]",NA
+"FinnGen (Release 10)","0.652 (0.029) [36]",NA,"0.529 (0.05) [26]",NA,NA,NA,NA
+"Biobank Japan","0.312 (0.023) [360]","0.392 (0.029) [40]",NA,NA,"0.284 (0.141) [12]","0.143 (0.048) [36]",NA
+"Taiwan Biobank","0.567 (0.031) [162]","0.381 (0.056) [20]","0.671 (0.049) [91]",NA,NA,NA,NA
+"Majority Hispanic mega-analysis (Wojcik)","0.523 (0.029) [108]","0.467 (0.042) [40]","0.566 (0.047) [78]",NA,NA,"0.126 (0.138) [8]",NA
+"SAS (Pan-UK Biobank)","0.009 (0.098) [124]",NA,"0.038 (0.047) [87]",NA,NA,NA,NA
+"AFR (Pan-UK Biobank)","0.008 (0.021) [108]",NA,"-0.034 (0.017) [78]",NA,NA,"0.028 (0.017) [24]",NA

@@ -1,0 +1,18 @@
+traitpairs,sig_status.5e8,replication.pops,replicated.5e8
+HDL cholesterol-Type 2 diabetes,Meta analysis Only,Majority Hispanic mega-analysis (Wojcik),Not Replicated
+Height-Asthma,Meta analysis Only,FinnGen (Release 10),Replicated
+Height-COPD,Meta analysis Only,FinnGen (Release 10),Not Replicated
+Height-Coronary Heart Disease,Meta analysis Only,FinnGen (Release 10),Replicated
+Height-Myocardial Infarction,Meta analysis Only,FinnGen (Release 10),Replicated
+Hemoglobin A1c-Bilirubin,Meta analysis Only,"",Not Tested
+Hemoglobin A1c-Coronary Heart Disease,Meta analysis Only,"",Not Tested
+Hemoglobin A1c-Myocardial Infarction,Meta analysis Only,"",Not Tested
+Hemoglobin A1c-Type 2 diabetes,Meta analysis Only,Majority Hispanic mega-analysis (Wojcik),Not Replicated
+Monocyte count-Bilirubin,Meta analysis Only,"SAS (Pan-UK Biobank), AFR (Pan-UK Biobank)",Not Replicated
+Platelet count-Type 2 diabetes,Meta analysis Only,Majority Hispanic mega-analysis (Wojcik),Not Replicated
+RBC count-Bilirubin,Meta analysis Only,"SAS (Pan-UK Biobank), AFR (Pan-UK Biobank)",Not Replicated
+Triglycerides-Coronary Heart Disease,Meta analysis Only,"",Not Tested
+Weight-Myocardial Infarction,Meta analysis Only,FinnGen (Release 10),Replicated
+Weight-Type 2 diabetes,Meta analysis Only,FinnGen (Release 10),Replicated
+Triglycerides-COPD,BBJ Only,"",Not Tested
+Weight-Atrial Fibrillation,BBJ Only,FinnGen (Release 10),Replicated

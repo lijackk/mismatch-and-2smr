@@ -1,0 +1,7 @@
+Instrument Selection Threshold,1e-5,5e-8
+Total Number of Mismatching Estimates with Reference Estimates,2182,1951
+Mismatching Estimates with Non-Significant Concordance z-scores,1774,1794
+"Mismatching Estimates with Significant Concordance z-scores, Same Sign as Reference, Smaller Magnitude",287,100
+"Mismatching Estimates with Significant Concordance z-scores, Same Sign as Reference, Larger Magnitude",3,5
+"Mismatching Estimates with Significant Concordance z-scores, Opposite Sign as Reference",118,52
+"Mismatching Estimates with Significant Concordance z-scores, Opposite Sign as Reference, Reference and Mismatch MR p-values < 0.05",6,7

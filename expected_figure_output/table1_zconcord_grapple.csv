@@ -1,0 +1,8 @@
+Instrument Selection Threshold,1e-05,5e-08
+Total Number of Mismatching Estimates with Reference Estimates,2182,1951
+Mismatching Estimates with Non-Significant Concordance z-scores,1779,1795
+"Mismatching Estimates with Significant Concordance z-scores, Same Sign as Reference, Smaller Magnitude",284,102
+"Mismatching Estimates with Significant Concordance z-scores, Same Sign as Reference, Larger Magnitude",1,4
+"Mismatching Estimates with Significant Concordance z-scores, Opposite Sign as Reference",118,50
+"Mismatching Estimates with Significant Concordance z-scores, Opposite Sign as Reference, Reference and Mismatch MR p-values < 0.05",4,6
+"SIMEX-Estimated Overall Shrinkage Coefficient, 1000 Bootstrap Resamples",0.41 (0.015),0.464 (0.019)

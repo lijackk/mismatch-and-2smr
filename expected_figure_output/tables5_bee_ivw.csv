@@ -1,0 +1,8 @@
+MR Method,IVW,BEE (1e-5),5e-08
+Total Number of Mismatching Estimates with Reference Estimates,1951,2182,1951
+Mismatching Estimates with Non-Significant Concordance z-scores,1781,1826,1795
+"Mismatching Estimates with Significant Concordance z-scores, Same Sign as Reference, Smaller Magnitude",101,242,102
+"Mismatching Estimates with Significant Concordance z-scores, Same Sign as Reference, Larger Magnitude",5,1,4
+"Mismatching Estimates with Significant Concordance z-scores, Opposite Sign as Reference",64,113,50
+"Mismatching Estimates with Significant Concordance z-scores, Opposite Sign as Reference, Reference and Mismatch MR p-values < 0.05",17,10,6
+"SIMEX-Estimated Overall Shrinkage Coefficient, 1000 Bootstrap Resamples",0.46 (0.018),0.408 (0.014),0.464 (0.019)
