@@ -395,60 +395,70 @@ statistics from 128 GWAS studies across 26 exposure traits, and
 <code>outcome_sumstats.tar.gz</code> (~50GB) consisting of summary
 statistics from 88 GWAS studies across 21 outcome traits. Once these
 files are downloaded and placed into your working directory, unzipping
-these .tar.gz files using the commands
-<code>tar -xzvf exposure_sumstats.tar.gz</code> and
-<code>tar -xzvf outcome_sumstats.tar.gz</code> will yield an
-“exposures/” and “outcomes/” directory, respectively, with
-subdirectories containing GWAS summary statistics for studies of
-specific traits.</p>
+these .tar.gz files using the commands</p>
+<pre><code>tar -xzvf exposure_sumstats.tar.gz
+tar -xzvf outcome_sumstats.tar.gz</code></pre>
+<p>will yield an <code>exposures/</code> and <code>outcomes/</code>
+directory, respectively, with subdirectories containing GWAS summary
+statistics for studies of specific traits.</p>
 </div>
 <div id="step-1b-downloading-ld-reference-panels" class="section level2">
 <h2>Step 1b) Downloading LD reference panels</h2>
 <p>We used reference panels from 1000 Genomes, divided into five
 continental superpopulations (AFR, AMR, EAS, EUR, SAS). These reference
 panels are available for FTP download. To obtain these summary
-statistics, enter the command
-<code>wget http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz</code>. Then,
-unpack the resulting <code>.tgz</code> file into the provided
-<code>ld_reference</code> directory using the command
-<code>tar -xvzf 1kg.v3.tgz -C ld_reference/</code>.</p>
+statistics, enter the command</p>
+<pre><code>wget http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz</code></pre>
+<p>Then, unpack the resulting <code>.tgz</code> file into the provided
+<code>ld_reference</code> directory using the command</p>
+<pre><code>tar -xvzf 1kg.v3.tgz -C ld_reference/</code></pre>
 </div>
 </div>
 <div id="step-2-performing-two-sample-mr" class="section level1">
 <h1>Step 2: Performing two-sample MR</h1>
-<p>After setting up the data, cd into the
-<code>snakemake_pipeline</code> directory. The Snakefile and R scripts
-in this directory perform two-sample MR between the 128 exposure studies
-described in <code>snakemake_csv_files/all_exposures.csv</code> and the
-88 outcome studies in <code>snakemake_csv_files/all_outcomes.csv</code>.
-Because Snakemake struggles with DAG creation when all exposures and
-outcomes are run together, the default behavior of the snakemake
-pipeline is to perform two-sample MR between all exposure studies and a
-single outcome study, specified in
-<code>snakemake_csv_files/current_outcome.csv</code>. The
-<code>run_input.R</code> script automatically updates
-<code>snakemake_csv_files/current_outcome.csv</code> across all
-outcomes, and submits the jobs implied by the snakemake pipeline to the
-cluster using the <code>run-snakemake.sh</code> command once the outcome
-is updated. For each individual outcome, 6,017 jobs will be sent to the
-job scheduler.</p>
-<p>To run the pipeline, start an R session in the
-<code>snakemake_pipeline</code> directory, and paste the contents of
-<code>run_input.R</code> into the console. You can also use commands
-such as <code>Rscript</code>. Please note that by default,
-<code>run_input.R</code> assumes that this analysis pipeline is being
-performed on a computing cluster with the <strong>Slurm job
-scheduler</strong>. During our tests on our own computing cluster, and
-using the cluster parameters specified by both
-<code>run-snakemake.sh</code> and <code>cluster.yaml</code>, it took
-approximately <strong>5 days</strong> to run the analysis from start to
-completion, with MR analyses for individual outcomes being completed in
-approximately <strong>1-2 hours each</strong>. If your cluster uses a
-different type of job scheduler, you must edit the
-<code>run-snakemake.sh</code> script accordingly. Due to the length of
-this analysis, it is highly recommended to run this pipeline using
-either <code>tmux</code> or <code>screen</code> so that it can run in a
+<div id="step-2a-setting-up-conda-and-r-environments" class="section level2">
+<h2>Step 2a: Setting up conda and R environments</h2>
+<p>After setting up the data, navigate into the
+<code>snakemake_pipeline/</code> directory using</p>
+<pre><code>cd snakemake_pipeline/</code></pre>
+<p>The Snakefile and R scripts in this directory perform two-sample MR
+between the 128 exposure studies described in
+<code>snakemake_csv_files/all_exposures.csv</code> and the 88 outcome
+studies in <code>snakemake_csv_files/all_outcomes.csv</code>. This
+snakemake pipeline runs in a conda environment, which needs to be built
+and activated. To build the environment, type</p>
+<pre><code>conda env create -f manuscript_env.yml</code></pre>
+<p>Once finished, confirm that the environment was built successfully
+using</p>
+<pre><code>conda env list</code></pre>
+<p>You should see <code>snakemake_env</code> in this list of
+environments. Activate this environment using</p>
+<pre><code>conda activate snakemake_env</code></pre>
+<p>This snakemake pipeline uses the <code>renv</code> R package to
+ensure consistent R package environments. Once the renv package has been
+installed, start an R session and type the command</p>
+<pre><code>renv::restore()</code></pre>
+<p>This will install of the necessary packages for our analysis
+pipeline.</p>
+</div>
+<div id="step-2b-running-the-snakemake-pipeline" class="section level2">
+<h2>Step 2b: Running the snakemake pipeline</h2>
+<p>During our tests on our own computing cluster, and using the cluster
+parameters specified by both <code>run-snakemake.sh</code> and
+<code>cluster.yaml</code>, it took approximately <strong>5 days</strong>
+to run the analysis from start to completion. Due to the length of this
+analysis, it is highly recommended to run this pipeline using either
+<code>tmux</code> or <code>screen</code> so that it can run in a
 separate background window.</p>
+<p>Once in this background window, the entire pipeline can be run
+using</p>
+<pre><code>./run-snakemake.sh</code></pre>
+<p>Please note that by default, <code>run-snakemake.sh</code> assumes
+that this analysis pipeline is being performed on a computing cluster
+with the <strong>Slurm job scheduler</strong>. If your cluster uses a
+different type of job scheduler, you must edit the
+<code>run-snakemake.sh</code> script accordingly. Overall, this pipeline
+will submit <strong>529,496</strong> jobs to the job scheduler.</p>
 <p>The outputs for these analyses will be saved into
 <code>outputs</code>, while logs for specific jobs will be saved into a
 <code>snakemake_pipeline/logs</code> directory. If no troubleshooting is
@@ -456,6 +466,7 @@ necessary after the pipeline is finished running, it is highly
 recommended to remove the <code>logs</code> folder using
 <code>rm -rf</code>, as log files for individual jobs build up
 quickly.</p>
+</div>
 </div>
 <div id="step-3-reproducing-figures" class="section level1">
 <h1>Step 3: Reproducing figures</h1>
@@ -465,7 +476,9 @@ reproduce the figures and tables in both the paper and its supplement.
 It will output these results into the <code>reproducible_figures</code>
 folder in the <code>snakemake_pipeline</code> directory. We also provide
 expected outputs for these figures and tables in the
-<code>expected_figure_outputs</code> directory.</p>
+<code>expected_figure_outputs</code> directory. This script can be run
+by typing the following command into the command line:</p>
+<pre><code>Rscript reproduce_figures.R</code></pre>
 </div>
 
 
