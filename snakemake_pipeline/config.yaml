@@ -1,6 +1,6 @@
 input:
   exposure_csv: 'snakemake_csv_files/all_exposures.csv'
-  outcome_csv: 'snakemake_csv_files/current_outcome.csv' 
+  outcome_csv: 'snakemake_csv_files/all_outcomes.csv'
   LD_ref_path: '../ld_reference/'
 
 out:

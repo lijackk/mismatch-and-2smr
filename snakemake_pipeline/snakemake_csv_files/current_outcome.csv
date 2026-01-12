@@ -1,2 +1,0 @@
-name,raw_data_path,pub_sample_size,effect_is_or,snp,A1,A2,beta_hat,se,pos,p_value,sample_size,chrom,af
-GCST90399699,../outcomes/Gout/GCST90399699.tsv.gz,18186,FALSE,rs_id,effect_allele,other_allele,beta,standard_error,base_pair_location,p_value,,chromosome,effect_allele_frequency
